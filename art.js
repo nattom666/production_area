@@ -209,6 +209,113 @@ const SHAPES = {
     <ellipse cx="58" cy="50" rx="4" ry="2.5" transform="rotate(-16 58 50)"/>
     <ellipse cx="50" cy="66" rx="4" ry="2.5" transform="rotate(-16 50 66)"/></g>
     <path d="M76 44c6-8 12-10 18-8-4 8-10 12-18 8z" fill="#5aa84f"/>`,
+  // ── 米・麦・豆・工芸農作物 ──
+  rice: (c) => `<path d="M50 90V44" stroke="${c.b || '#b9a15a'}" stroke-width="4" stroke-linecap="round"/>
+    <g fill="${c.a}"><g><ellipse cx="42" cy="34" rx="4.5" ry="8" transform="rotate(-24 42 34)"/>
+    <ellipse cx="58" cy="34" rx="4.5" ry="8" transform="rotate(24 58 34)"/>
+    <ellipse cx="38" cy="48" rx="4.5" ry="8" transform="rotate(-30 38 48)"/>
+    <ellipse cx="62" cy="48" rx="4.5" ry="8" transform="rotate(30 62 48)"/>
+    <ellipse cx="36" cy="62" rx="4.5" ry="8" transform="rotate(-34 36 62)"/>
+    <ellipse cx="64" cy="62" rx="4.5" ry="8" transform="rotate(34 64 62)"/>
+    <ellipse cx="50" cy="26" rx="4.5" ry="9"/></g></g>`,
+  wheat: (c) => `<path d="M50 92V50" stroke="#b9a15a" stroke-width="4" stroke-linecap="round"/>
+    <g fill="${c.a}" stroke="${c.a}" stroke-width="1">
+    <ellipse cx="50" cy="20" rx="5" ry="9"/>
+    <ellipse cx="41" cy="32" rx="5" ry="9" transform="rotate(-22 41 32)"/>
+    <ellipse cx="59" cy="32" rx="5" ry="9" transform="rotate(22 59 32)"/>
+    <ellipse cx="41" cy="46" rx="5" ry="9" transform="rotate(-22 41 46)"/>
+    <ellipse cx="59" cy="46" rx="5" ry="9" transform="rotate(22 59 46)"/></g>
+    <g stroke="${c.a}" stroke-width="2" stroke-linecap="round">
+    <path d="M50 12v-6M44 20l-5-6M56 20l5-6"/></g>`,
+  bean: (c) => `<path d="M28 60c-6-14 4-28 20-30 14-2 26 6 26 18 0 14-12 24-26 26-10 1-17-4-20-14z" fill="${c.a}"/>
+    <g fill="#fff" opacity=".35"><ellipse cx="42" cy="52" rx="7" ry="6"/><ellipse cx="60" cy="46" rx="6" ry="5"/></g>
+    <path d="M74 42c6-4 10-4 14-2-4 6-10 8-14 2z" fill="#5aa84f"/>`,
+  peanut: (c) => `<path d="M30 74c-8-8-6-20 2-26-6-8-4-20 6-24 12-5 24 4 26 16 2 10-2 18-8 22 4 8 0 18-10 20-6 1-12-2-16-8z" fill="${c.a}"/>
+    <g stroke="#b98d55" stroke-width="1.8" fill="none" opacity=".7">
+    <path d="M34 40c8 4 16 4 22 0M32 58c8 4 18 4 24 0M38 30c4 2 10 3 14 2M36 70c6 3 12 3 16 1"/></g>`,
+  sugarcane: () => `<g fill="#8fae5a"><rect x="34" y="26" width="10" height="62" rx="4"/><rect x="52" y="20" width="10" height="68" rx="4"/></g>
+    <g stroke="#6b8f3c" stroke-width="2"><path d="M34 42h10M34 58h10M34 74h10M52 38h10M52 54h10M52 70h10"/></g>
+    <path d="M39 26c-8-10-6-18-2-22 6 6 8 14 2 22zM57 20c8-10 16-12 22-10-6 10-14 14-22 10z" fill="#5aa84f"/>`,
+  tealeaf: (c) => `<g fill="${c.a}">
+    <path d="M50 86c-16-10-24-28-20-44 12 4 20 18 20 32 0-14 8-28 20-32 4 16-4 34-20 44z"/></g>
+    <path d="M50 88V44" stroke="#7a5230" stroke-width="3" stroke-linecap="round"/>
+    <g fill="#7fb069"><ellipse cx="34" cy="34" rx="9" ry="6" transform="rotate(-28 34 34)"/>
+    <ellipse cx="66" cy="34" rx="9" ry="6" transform="rotate(28 66 34)"/></g>`,
+  konjac: (c) => `<ellipse cx="50" cy="60" rx="28" ry="24" fill="${c.a}"/>
+    <g stroke="#6b5a3f" stroke-width="1.8" fill="none" opacity=".6">
+    <path d="M28 56c14 4 30 4 44 0M30 68c12 4 28 4 40 0"/></g>
+    <path d="M50 36c-2-10 0-14 2-16 2 4 3 10-2 16z" fill="#5aa84f"/>`,
+  beet: (c) => `<path d="M50 88c-10-10-16-26-16-38 0-9 7-14 16-14s16 5 16 14c0 12-6 28-16 38z" fill="${c.a}"/>
+    <g fill="#7fb069"><path d="M50 36c-8-10-16-14-24-14 4 12 14 18 24 14zM50 36c8-10 16-14 24-14-4 12-14 18-24 14z"/></g>`,
+  igusa: () => `<g stroke="#9cbf5a" stroke-width="4" stroke-linecap="round">
+    <path d="M32 90V26M42 90V18M50 90V14M58 90V18M68 90V26"/></g>
+    <g fill="#c8d96f"><circle cx="42" cy="18" r="3"/><circle cx="50" cy="14" r="3"/><circle cx="58" cy="18" r="3"/></g>`,
+  // ── 牛・豚・にわとり ──
+  cow: (c) => `<ellipse cx="50" cy="58" rx="32" ry="24" fill="${c.a}"/>
+    <g fill="${c.b || '#3b3226'}"><ellipse cx="34" cy="50" rx="10" ry="8"/><ellipse cx="64" cy="64" rx="9" ry="7"/></g>
+    <ellipse cx="50" cy="74" rx="13" ry="9" fill="#f2b8bd"/>
+    <g fill="#3b3226"><circle cx="45" cy="73" r="2"/><circle cx="55" cy="73" r="2"/></g>
+    <g fill="#3b3226"><circle cx="38" cy="44" r="2.5"/><circle cx="62" cy="44" r="2.5"/></g>
+    <path d="M22 44c-6-6-8-12-6-16 6 2 10 8 10 14zM78 44c6-6 8-12 6-16-6 2-10 8-10 14z" fill="${c.c || '#e8dcc8'}"/>`,
+  pig: (c) => `<ellipse cx="50" cy="58" rx="31" ry="24" fill="${c.a}"/>
+    <ellipse cx="50" cy="66" rx="13" ry="10" fill="#f7a8b8"/>
+    <g fill="#8a5a66"><ellipse cx="45" cy="66" rx="2.5" ry="3.5"/><ellipse cx="55" cy="66" rx="2.5" ry="3.5"/></g>
+    <g fill="#3b3226"><circle cx="38" cy="46" r="2.5"/><circle cx="62" cy="46" r="2.5"/></g>
+    <path d="M26 38c-4-8-2-12 2-14 4 4 5 10 2 16zM74 38c4-8 2-12-2-14-4 4-5 10-2 16z" fill="${c.a}"/>`,
+  chicken: (c) => `<ellipse cx="52" cy="62" rx="26" ry="22" fill="${c.a}"/>
+    <circle cx="34" cy="42" r="14" fill="${c.a}"/>
+    <path d="M28 28c2-6 6-8 8-6 2-6 8-6 10-2 4-2 8 2 6 8-6 4-18 6-24 0z" fill="#e63946"/>
+    <circle cx="30" cy="40" r="2.5" fill="#3b3226"/>
+    <path d="M22 46l-8 4 8 4z" fill="#f2a03d"/>
+    <path d="M64 74c6 6 10 8 14 8-4-8-8-12-14-14z" fill="${c.b || '#d9b382'}"/>`,
+  egg: () => `<ellipse cx="38" cy="62" rx="18" ry="23" fill="#f7ecdc"/>
+    <ellipse cx="64" cy="56" rx="15" ry="19" fill="#f2dcc0"/>
+    <ellipse cx="32" cy="54" rx="5" ry="8" fill="#fff" opacity=".55"/>`,
+  // ── 魚介 ──
+  fish: (c) => `<path d="M18 56c10-14 26-22 42-22 12 0 20 6 24 14-4 8-12 14-24 14-16 0-32-6-42-6z" fill="${c.a}"/>
+    <path d="M18 56c-6-6-10-14-10-18 8 2 14 8 18 12zM18 56c-6 6-10 14-10 18 8-2 14-8 18-12z" fill="${c.b || c.a}"/>
+    <circle cx="70" cy="48" r="3" fill="#fff"/><circle cx="70" cy="48" r="1.6" fill="#3b3226"/>
+    <path d="M44 40c4 6 4 14 0 20" stroke="#fff" stroke-width="2" fill="none" opacity=".4"/>`,
+  flatfish: (c) => `<ellipse cx="50" cy="58" rx="34" ry="22" fill="${c.a}"/>
+    <path d="M84 58c6-4 10-10 10-14-6 0-12 4-16 8z" fill="${c.a}"/>
+    <g fill="#3b3226"><circle cx="34" cy="50" r="3"/><circle cx="42" cy="48" r="3"/></g>
+    <g fill="#fff" opacity=".3"><circle cx="56" cy="54" r="4"/><circle cx="68" cy="60" r="4"/><circle cx="50" cy="66" r="4"/></g>`,
+  squid: (c) => `<path d="M50 14c12 0 18 12 18 26s-6 20-18 20-18-6-18-20 6-26 18-26z" fill="${c.a}"/>
+    <path d="M34 22l-14-8 10 14zM66 22l14-8-10 14z" fill="${c.a}"/>
+    <g stroke="${c.a}" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M40 58c-2 12-6 20-10 26M46 60c-1 12-2 22-4 28M54 60c1 12 2 22 4 28M60 58c2 12 6 20 10 26"/></g>
+    <g fill="#3b3226"><circle cx="43" cy="36" r="2.5"/><circle cx="57" cy="36" r="2.5"/></g>`,
+  octopus: (c) => `<path d="M50 16c16 0 26 12 26 26 0 10-4 16-10 18H34c-6-2-10-8-10-18 0-14 10-26 26-26z" fill="${c.a}"/>
+    <g stroke="${c.a}" stroke-width="6" stroke-linecap="round" fill="none">
+    <path d="M32 60c-6 10-12 16-18 18M42 62c-4 12-6 20-8 26M58 62c4 12 6 20 8 26M68 60c6 10 12 16 18 18"/></g>
+    <g fill="#fff"><circle cx="42" cy="36" r="4"/><circle cx="58" cy="36" r="4"/></g>
+    <g fill="#3b3226"><circle cx="42" cy="36" r="2"/><circle cx="58" cy="36" r="2"/></g>`,
+  shrimp: (c) => `<path d="M74 34c-22-4-42 6-48 22-4 12 2 22 12 24 4-10 2-20 8-28 8-10 20-14 28-10z" fill="${c.a}"/>
+    <g stroke="${c.a}" stroke-width="3" stroke-linecap="round"><path d="M74 34l12-6M74 40l14 2M70 28l6-10"/></g>
+    <g stroke="${c.a}" stroke-width="2.5" stroke-linecap="round">
+    <path d="M40 62l-6 10M48 60l-4 12M56 56l-2 12"/></g>
+    <circle cx="70" cy="36" r="2.5" fill="#3b3226"/>`,
+  crab: (c) => `<ellipse cx="50" cy="56" rx="26" ry="18" fill="${c.a}"/>
+    <g fill="#fff"><circle cx="42" cy="50" r="4"/><circle cx="58" cy="50" r="4"/></g>
+    <g fill="#3b3226"><circle cx="42" cy="50" r="2"/><circle cx="58" cy="50" r="2"/></g>
+    <g fill="${c.a}"><path d="M24 46c-10-6-16-4-18 2 6 6 14 6 20 2zM76 46c10-6 16-4 18 2-6 6-14 6-20 2z"/></g>
+    <g stroke="${c.a}" stroke-width="4" stroke-linecap="round">
+    <path d="M28 66l-12 10M38 72l-8 12M62 72l8 12M72 66l12 10"/></g>`,
+  shell: (c) => `<path d="M50 82C30 76 18 60 18 44c0-4 4-6 8-4 4-8 12-10 16-6 4-6 12-6 16 0 4-4 12-2 16 6 4-2 8 0 8 4 0 16-12 32-32 38z" fill="${c.a}"/>
+    <g stroke="#fff" stroke-width="1.8" fill="none" opacity=".5">
+    <path d="M50 82V38M38 78c-4-12-6-24-6-34M62 78c4-12 6-24 6-34M26 66c-4-8-6-16-6-22M74 66c4-8 6-16 6-22"/></g>`,
+  scallop: (c) => `<path d="M50 84C28 76 16 58 16 42c0-6 6-8 12-6 4-8 14-10 22-10s18 2 22 10c6-2 12 0 12 6 0 16-12 34-34 42z" fill="${c.a}"/>
+    <g stroke="#e8d8c0" stroke-width="2" fill="none">
+    <path d="M50 84V28M36 80c-4-14-6-30-6-40M64 80c4-14 6-30 6-40M24 62c-4-10-6-20-6-26M76 62c4-10 6-20 6-26"/></g>
+    <path d="M40 26h20l-4-8H44z" fill="${c.a}"/>`,
+  urchin: (c) => `<circle cx="50" cy="56" r="20" fill="${c.a}"/>
+    <g stroke="${c.a}" stroke-width="3.5" stroke-linecap="round">
+    <path d="M50 36V14M50 76v22M30 56H8M70 56h22M36 42L20 26M64 42l16-16M36 70L20 86M64 70l16 16"/></g>
+    <circle cx="50" cy="56" r="8" fill="#f5b642"/>`,
+  seaweed: (c) => `<g fill="${c.a}">
+    <path d="M34 92c-6-22-4-46 4-64 4 20 4 44 0 64z"/>
+    <path d="M52 92c-4-26 0-52 8-70 2 24 0 48-8 70z"/>
+    <path d="M68 92c-2-20 2-40 8-54 0 18-2 38-8 54z"/></g>`,
   negi: () => `<path d="M46 88V50h8v38z" fill="#f2f5e4"/>
     <path d="M50 52c-6-14-8-28-6-38 6 8 8 24 6 38zM50 52c6-14 8-28 6-38-6 8-8 24-6 38z" fill="#5aa84f"/>
     <path d="M46 60h8" stroke="#dfe8c0" stroke-width="2"/>`,
@@ -216,6 +323,63 @@ const SHAPES = {
 
 // 品目（統計の名前）→ 形と色
 const ART = {
+  "水稲": ["rice", "#e8c84a"],
+  "小麦": ["wheat", "#e0b64a"],
+  "二条大麦": ["wheat", "#d9a94a"],
+  "六条大麦": ["wheat", "#d1a03f"],
+  "はだか麦": ["wheat", "#e8cc7a"],
+  "大豆": ["bean", "#e8d9a8"],
+  "小豆": ["bean", "#a8322f"],
+  "いんげん": ["bean", "#d9c088"],
+  "らっかせい": ["peanut", "#d9b382"],
+  "そば": ["bean", "#8d7a5f"],
+  "てんさい": ["beet", "#f0ead6"],
+  "さとうきび": ["sugarcane", ""],
+  "こんにゃくいも": ["konjac", "#8a7a5f"],
+  "なたね": ["flower", "#f2c94c"],
+  "い": ["igusa", ""],
+  "茶": ["tealeaf", "#3f8f3f"],
+  "乳用牛": ["cow", "#f2ece0"],
+  "肉用牛": ["cow", "#4a3b2f"],
+  "豚": ["pig", "#f2b8bd"],
+  "採卵鶏": ["egg", ""],
+  "ブロイラー": ["chicken", "#f2ece0"],
+  "くろまぐろ": ["fish", "#3b5a8f"],
+  "まぐろ類": ["fish", "#4a6fa8"],
+  "かつお": ["fish", "#5a7a9f"],
+  "さけ類": ["fish", "#e8845a"],
+  "さんま": ["fish", "#8a9aa8"],
+  "まいわし": ["fish", "#7a92a8"],
+  "かたくちいわし": ["fish", "#8fa4b5"],
+  "しらす": ["fish", "#e8e2d4"],
+  "まあじ": ["fish", "#9aa88f"],
+  "さば類": ["fish", "#4a6b7a"],
+  "ぶり類": ["fish", "#7a8f9f"],
+  "まだい": ["fish", "#e0748f"],
+  "ひらめ": ["flatfish", "#a89880"],
+  "かれい類": ["flatfish", "#b5a488"],
+  "すけとうだら": ["fish", "#a89a88"],
+  "まだら": ["fish", "#9a8f7f"],
+  "ほっけ": ["fish", "#8f9a88"],
+  "にしん": ["fish", "#8fa4b5"],
+  "たちうお": ["fish", "#c8ccd4"],
+  "さわら類": ["fish", "#6b8f9a"],
+  "ふぐ": ["fish", "#c8b89f"],
+  "ふぐ類": ["fish", "#c8b89f"],
+  "はたはた": ["fish", "#c8b078"],
+  "するめいか": ["squid", "#e0a48f"],
+  "いか類": ["squid", "#e8b8a0"],
+  "たこ類": ["octopus", "#d4726b"],
+  "いせえび": ["shrimp", "#c8412f"],
+  "くるまえび": ["shrimp", "#e0745a"],
+  "ずわいがに": ["crab", "#d4593f"],
+  "かに類": ["crab", "#c84a35"],
+  "ほたてがい": ["scallop", "#e8d0a8"],
+  "あわび類": ["shell", "#6b6b5a"],
+  "さざえ": ["shell", "#7a6b4a"],
+  "あさり類": ["shell", "#8a7a5f"],
+  "うに類": ["urchin", "#3b3226"],
+  "こんぶ類": ["seaweed", "#3f5a3f"],
   "みかん": ["ball", "#ff9f1c"],
   "りんご": ["apple", ""],
   "日本なし": ["pear", "#c9a227"],
@@ -372,6 +536,7 @@ const ART = {
 
 function artSvg(statName) {
   const spec = ART[statName] || ['ball', '#c9d6a3'];
-  const [shape, color] = spec;
-  return `<svg viewBox="0 0 100 100" role="img" aria-hidden="true">${SHAPES[shape]({ a: color })}</svg>`;
+  const [shape, color, color2] = spec;
+  return `<svg viewBox="0 0 100 100" role="img" aria-hidden="true">${
+    SHAPES[shape]({ a: color, b: color2 })}</svg>`;
 }
