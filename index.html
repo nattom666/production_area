@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>やさい・くだもの さんちマップ｜とれる量 日本一はどこ？</title>
-<meta name="description" content="やさいとくだものが、いちばんたくさんとれる都道府県を1位から3位まで見られます。数字は農林水産省の作物統計調査（令和6年産）です。">
+<meta name="description" content="やさいとくだものが、いちばんたくさんとれる都道府県を1位から3位まで見られます。152品目を収録。数字は農林水産省の作物統計調査などの公式統計です。">
 <style>
 :root{
   --bg:#fff9f0; --card:#fff; --ink:#3b3226; --sub:#8a7c6a; --line:#efe3d2;
@@ -53,10 +53,13 @@ main{max-width:1040px; margin:0 auto; padding:16px}
 .thumb svg{width:100%; height:100%; display:block}
 .name{font-size:20px; font-weight:bold; line-height:1.3}
 .name .kana{display:block; font-size:11px; color:var(--sub); font-weight:normal}
+.badges{margin-top:3px; display:flex; flex-wrap:wrap; gap:4px}
 .badge{
-  display:inline-block; margin-top:3px; font-size:11px; color:var(--sub);
+  display:inline-block; font-size:11px; color:var(--sub);
   background:#f6f0e6; border-radius:999px; padding:1px 8px;
 }
+.badge.y{background:#eaf2e4; color:#5c7a4a}
+.badge.w{background:#fdeee2; color:#a86a3d}
 ol.rank{list-style:none; margin:0; padding:0}
 ol.rank li{display:flex; align-items:center; gap:9px; padding:5px 0}
 .medal{
@@ -95,7 +98,7 @@ footer ul{padding-left:1.2em; margin:6px 0}
   <h1>やさい・くだもの さんちマップ
     <span class="sub">いちばんたくさん とれるのは どこ？</span>
   </h1>
-  <div class="year" id="year"></div>
+  <div class="year" id="count"></div>
 </header>
 
 <div class="controls">
@@ -115,20 +118,18 @@ footer ul{padding-left:1.2em; margin:6px 0}
 <footer>
   <h2>この数字について</h2>
   <p>
-    すべて <strong>農林水産省「作物統計調査」</strong>の<span id="yearText"></span>の数字です。
-    国が出している統計を、そのまま使っています。単位はトン（1トン＝1000キログラム）で、
-    <strong>しゅうかく量</strong>（畑でとれた重さ）の多い順にならべています。
+    すべて<strong>農林水産省が出している統計</strong>の数字を、そのまま使っています。単位はトン
+    （1トン＝1000キログラム）で、<strong>しゅうかく量</strong>（畑でとれた重さ）の多い順に
+    ならべています。品目によって調べている年がちがうので、カードに年を書いています。
   </p>
   <h2>データのもと（出典）</h2>
-  <ul>
-    <li>やさい：<a id="srcVeg" href="#" target="_blank" rel="noopener">e-Stat 作況調査（野菜） 都道府県別・品目別の作付面積、収穫量及び出荷量</a></li>
-    <li>やさいの全国の数字：<a id="srcVegJp" href="#" target="_blank" rel="noopener">e-Stat 作況調査（野菜） 全国の作付面積、10a当たり収量、収穫量及び出荷量</a></li>
-    <li>くだもの：<a id="srcFruit" href="#" target="_blank" rel="noopener">e-Stat 作況調査（果樹） 都道府県別の結果樹面積・10a当たり収量・収穫量・出荷量</a></li>
-  </ul>
+  <ul id="srcList"></ul>
   <p>カードの「データのもと」からも、その品目の統計表を直接ひらけます。</p>
   <h2>気をつけてほしいこと</h2>
   <ul>
     <li>品目によっては、国が<strong>主な産地の都道府県だけ</strong>を調べています。カードの「◯県ぶんを調査」がその数です。調べていない県は順位に入りません。</li>
+    <li>「上位3さんちだけ公表」と書いてある品目は、統計に<strong>上位3つの産地しか出ていません</strong>。4位から下は国が公表していないので分かりません。</li>
+    <li>年は品目によってちがいます。国の調べる周期がちがうためで、どれもその品目の<strong>いちばん新しい確報</strong>です。</li>
     <li>いちご・メロン・すいかは、ふだんはくだものとして食べますが、統計では<strong>野菜</strong>にわけられています。このサイトでは「くだもの」に入れて、しるしを付けています。</li>
     <li>パイナップルは沖縄県だけで調べているので、1位しかありません。</li>
   </ul>
@@ -149,11 +150,11 @@ const grid = document.getElementById('grid');
 const empty = document.getElementById('empty');
 let group = 'all', query = '';
 
-document.getElementById('year').textContent = DATA.year.label + '（' + DATA.year.seireki + '年）のデータ';
-document.getElementById('yearText').textContent = DATA.year.label + '（' + DATA.year.seireki + '年）';
-document.getElementById('srcVeg').href = DATA.sources.veg;
-document.getElementById('srcVegJp').href = DATA.sources.vegNational;
-document.getElementById('srcFruit').href = DATA.sources.fruitTop;
+const nFruit = DATA.items.filter(i => i.group === 'fruit').length;
+document.getElementById('count').textContent =
+  'くだもの ' + nFruit + ' ・ やさい ' + (DATA.items.length - nFruit) + ' の ' + DATA.items.length + '品目';
+document.getElementById('srcList').innerHTML = Object.values(DATA.surveys).map(s =>
+  `<li><a href="${s.url}" target="_blank" rel="noopener">e-Stat ${s.label}</a>（${s.year}／${s.seireki}年）</li>`).join('');
 
 function card(it){
   const max = it.top[0].t;
@@ -168,17 +169,21 @@ function card(it){
       </span></li>`;
   }).join('');
   const fruity = it.group === 'fruit' && it.statGroup === 'veg';
+  const badges = [`<span class="badge y">${it.year}</span>`]
+    .concat(fruity ? ['<span class="badge">とうけいでは やさい</span>'] : [])
+    .concat(it.partial ? ['<span class="badge w">上位3さんちだけ公表</span>'] : []);
   return `<article class="card">
     <div class="card-head">
       <div class="thumb">${artSvg(it.stat)}</div>
       <div>
         <div class="name">${it.name}<span class="kana">${it.kana}</span></div>
-        ${fruity ? '<span class="badge">とうけいでは やさい</span>' : ''}
+        <div class="badges">${badges.join('')}</div>
       </div>
     </div>
     <ol class="rank">${rows}</ol>
     <div class="card-foot">
-      <span>${it.national ? 'ぜんこく ' + ja(it.national) + ' t／' : ''}${it.prefCount}県ぶんを調査</span>
+      <span>${it.national ? 'ぜんこく ' + ja(it.national) + ' t' : ''}${
+        !it.partial && it.prefCount ? (it.national ? '／' : '') + it.prefCount + '県ぶんを調査' : ''}</span>
       <a href="${it.source}" target="_blank" rel="noopener">データのもと</a>
     </div>
   </article>`;

@@ -120,6 +120,95 @@ const SHAPES = {
     <path d="M26 58c6 14 16 20 24 20s18-6 24-20c-4 12-10 22-24 22s-20-10-24-22z" fill="#8fae5a"/>`,
   asparagus: (c) => `<g fill="${c.a}"><path d="M42 88V40c0-6 1-10 3-10s3 4 3 10v48z"/><path d="M52 88V36c0-6 1-10 3-10s3 4 3 10v52z"/></g>
     <g fill="${c.b || '#3d7a30'}"><path d="M45 30l-4-8 4-6 4 6zM55 26l-4-8 4-6 4 6z"/></g>`,
+  // ── 追加の形 ──
+  lemon: (c) => `<ellipse cx="50" cy="56" rx="30" ry="22" fill="${c.a}" transform="rotate(-12 50 56)"/>
+    <path d="M78 46c6-2 9-1 10 1-3 3-7 3-10-1zM22 66c-6 2-9 1-10-1 3-3 7-3 10 1z" fill="${c.a}"/>
+    <ellipse cx="40" cy="48" rx="9" ry="5" fill="#fff" opacity=".33" transform="rotate(-12 40 48)"/>`,
+  yuzu: (c) => `<path d="M50 26c17 0 30 13 30 30s-13 30-30 30-30-13-30-30 13-30 30-30z" fill="${c.a}"/>
+    <g fill="#000" opacity=".08"><circle cx="36" cy="46" r="4"/><circle cx="62" cy="44" r="4"/>
+    <circle cx="44" cy="66" r="4"/><circle cx="66" cy="64" r="4"/><circle cx="52" cy="54" r="4"/></g>
+    <path d="M50 26c-2-6 0-9 2-11 2 5 2 8-2 11z" fill="#5aa84f"/>`,
+  banana: () => `<path d="M24 40c2 26 20 42 44 40 8-1 10-6 6-9-18 2-32-10-36-32-2-6-8-6-9-2-1 1-1 2-1 3h-4z" fill="#f2c94c"/>
+    <path d="M28 40c4 22 20 36 40 36 3 0 4 2 2 3-22 4-42-12-46-38 0-1 1-2 2-2h2z" fill="#e0ac2b" opacity=".7"/>
+    <rect x="20" y="30" width="7" height="12" rx="3" fill="#7a5230" transform="rotate(-14 24 36)"/>`,
+  mango: () => `<path d="M64 28c14 6 20 24 12 40s-28 22-40 12-10-30 2-42c8-8 18-14 26-10z" fill="#f2a03d"/>
+    <path d="M64 28c-10-2-22 2-30 10 12-4 24-4 34 2-1-5-2-9-4-12z" fill="#e0573f"/>
+    <ellipse cx="42" cy="58" rx="6" ry="12" fill="#fff" opacity=".22" transform="rotate(-28 42 58)"/>
+    <path d="M66 26c4-6 10-8 14-8-2 6-7 10-14 10z" fill="#5aa84f"/>`,
+  avocado: () => `<path d="M50 22c10 0 16 10 16 20 8 6 12 18 12 26 0 12-12 20-28 20S22 80 22 68c0-8 4-20 12-26 0-10 6-20 16-20z" fill="#4a8f3c"/>
+    <path d="M50 32c7 0 12 8 12 16 6 5 9 14 9 20 0 9-9 15-21 15s-21-6-21-15c0-6 3-15 9-20 0-8 5-16 12-16z" fill="#c8d96f"/>
+    <circle cx="50" cy="66" r="11" fill="#8d5524"/>`,
+  olive: (c) => `<ellipse cx="38" cy="62" rx="14" ry="18" fill="${c.a}"/><ellipse cx="64" cy="54" rx="11" ry="14" fill="${c.b || '#6b8f3c'}"/>
+    <path d="M38 44V28M64 40V26" stroke="#5a7a2c" stroke-width="3" stroke-linecap="round"/>
+    <path d="M38 30c-8-6-16-6-22-4 6 8 14 10 22 4zM64 28c8-6 14-6 20-4-6 8-12 10-20 4z" fill="#5a7a2c"/>`,
+  coffee: () => `<circle cx="38" cy="60" r="16" fill="#c8342b"/><circle cx="64" cy="52" r="13" fill="#a8241c"/>
+    <path d="M38 48c0-14 4-22 8-26M64 40c-2-12-4-18-8-22" stroke="#5aa84f" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M46 22c8-6 16-4 20 0-6 6-14 6-20 0z" fill="#5aa84f"/>`,
+  starfruit: () => `<path d="M50 18l10 26 28 2-22 17 8 27-24-16-24 16 8-27-22-17 28-2z" fill="#f2c94c"/>
+    <path d="M50 30l6 17 18 1-14 11 5 17-15-10-15 10 5-17-14-11 18-1z" fill="#e0ac2b" opacity=".45"/>`,
+  dragonfruit: () => `<ellipse cx="50" cy="58" rx="24" ry="30" fill="#e0407a"/>
+    <g fill="#8fce4a"><path d="M26 46c-10-6-16-4-20 0 8 6 14 8 20 4zM74 46c10-6 16-4 20 0-8 6-14 8-20 4z"/>
+    <path d="M30 66c-10-4-16-2-20 2 8 5 14 6 20 2zM70 66c10-4 16-2 20 2-8 5-14 6-20 2z"/>
+    <path d="M50 28c-6-8-4-14 0-18 4 4 6 10 0 18z"/></g>
+    <ellipse cx="42" cy="52" rx="6" ry="10" fill="#fff" opacity=".2"/>`,
+  fig: (c) => `<path d="M50 30c14 0 26 14 26 28 0 14-12 24-26 24S24 72 24 58c0-14 12-28 26-28z" fill="${c.a}"/>
+    <path d="M50 30c-4-8-2-12 0-14 2 2 4 6 0 14z" fill="#5aa84f"/>
+    <path d="M50 24c-8-4-14-4-18-2 4 6 10 8 18 2zM50 24c8-4 14-4 18-2-4 6-10 8-18 2z" fill="#5aa84f"/>
+    <ellipse cx="40" cy="56" rx="6" ry="10" fill="#fff" opacity=".2"/>`,
+  bunch: (c) => `<g fill="${c.a}">
+    <circle cx="34" cy="48" r="11"/><circle cx="58" cy="42" r="10"/><circle cx="66" cy="62" r="11"/>
+    <circle cx="44" cy="68" r="12"/><circle cx="50" cy="52" r="9"/></g>
+    <g fill="#fff" opacity=".3"><circle cx="30" cy="44" r="3"/><circle cx="40" cy="64" r="3"/></g>
+    <path d="M56 32c6-8 14-10 20-10-4 8-12 12-20 10z" fill="#5aa84f"/>`,
+  nut: (c) => `<circle cx="50" cy="56" r="27" fill="${c.a}"/>
+    <path d="M50 29v54" stroke="#6b4423" stroke-width="3"/>
+    <g stroke="#6b4423" stroke-width="2" fill="none" opacity=".7">
+    <path d="M50 40c-8 2-12 8-12 16s4 14 12 16M50 40c8 2 12 8 12 16s-4 14-12 16"/></g>`,
+  ginkgo: (c) => `<g fill="${c.a}"><ellipse cx="38" cy="62" rx="13" ry="17"/><ellipse cx="62" cy="56" rx="11" ry="15"/></g>
+    <path d="M62 34c8-14 20-18 30-16-6 14-18 20-30 16z" fill="#e8c84a"/>
+    <ellipse cx="34" cy="56" rx="4" ry="6" fill="#fff" opacity=".35"/>`,
+  okra: (c) => `<path d="M50 88c-8-6-12-22-12-38 0-8 5-12 12-12s12 4 12 12c0 16-4 32-12 38z" fill="${c.a}"/>
+    <g stroke="#2f6f2f" stroke-width="1.8" opacity=".6" fill="none"><path d="M44 46c-2 14 0 26 4 34M56 46c2 14 0 26-4 34M50 42v46"/></g>
+    <path d="M50 38c-6 0-10-2-12-6 6-2 10-2 12 0 2-2 6-2 12 0-2 4-6 6-12 6z" fill="#4a8f3c"/>
+    <rect x="48" y="22" width="4" height="12" rx="2" fill="#4a8f3c"/>`,
+  bittermelon: (c) => `<path d="M50 88c-10-8-16-26-16-42 0-8 6-14 16-14s16 6 16 14c0 16-6 34-16 42z" fill="${c.a}"/>
+    <g fill="#2f6f2f" opacity=".55"><ellipse cx="42" cy="48" rx="3" ry="5"/><ellipse cx="58" cy="46" rx="3" ry="5"/>
+    <ellipse cx="44" cy="64" rx="3" ry="5"/><ellipse cx="58" cy="66" rx="3" ry="5"/><ellipse cx="50" cy="56" rx="3" ry="5"/></g>
+    <rect x="48" y="20" width="4" height="12" rx="2" fill="#5aa84f"/>`,
+  wintermelon: (c) => `<ellipse cx="50" cy="58" rx="26" ry="30" fill="${c.a}"/>
+    <g stroke="#fff" stroke-width="2" fill="none" opacity=".45"><path d="M36 32c-4 18-4 36 0 52M64 32c4 18 4 36 0 52"/></g>
+    <rect x="47" y="22" width="6" height="10" rx="3" fill="#6b8f3c"/>`,
+  sprout: () => `<g stroke="#f2f5e4" stroke-width="3" stroke-linecap="round">
+    <path d="M34 88V50M42 88V44M50 88V40M58 88V44M66 88V50"/></g>
+    <g fill="#5aa84f"><circle cx="34" cy="46" r="6"/><circle cx="42" cy="40" r="6"/><circle cx="50" cy="36" r="6"/>
+    <circle cx="58" cy="40" r="6"/><circle cx="66" cy="46" r="6"/></g>`,
+  mushroom: (c) => `<path d="M22 54c0-16 13-26 28-26s28 10 28 26c0 5-4 7-10 7H32c-6 0-10-2-10-7z" fill="${c.a}"/>
+    <path d="M40 61h20v18c0 5-4 8-10 8s-10-3-10-8z" fill="#f2ece0"/>
+    <ellipse cx="38" cy="44" rx="8" ry="5" fill="#fff" opacity=".3"/>`,
+  chili: (c) => `<path d="M62 30c10 8 12 26 2 40-9 13-24 18-32 12s-4-22 6-34c8-9 16-24 24-18z" fill="${c.a}"/>
+    <path d="M62 30c-2-8 0-12 4-14 2 6 2 10-4 14z" fill="#4a8f3c"/>
+    <path d="M58 22c6-4 12-4 16-2-4 6-10 8-16 2z" fill="#4a8f3c"/>`,
+  parsley: (c) => `<g fill="${c.a}">
+    <circle cx="34" cy="40" r="10"/><circle cx="50" cy="32" r="11"/><circle cx="66" cy="40" r="10"/>
+    <circle cx="40" cy="52" r="10"/><circle cx="60" cy="52" r="10"/><circle cx="50" cy="46" r="9"/></g>
+    <g fill="#fff" opacity=".22"><circle cx="46" cy="30" r="3"/><circle cx="36" cy="50" r="3"/></g>
+    <path d="M46 88V58h8v30z" fill="#7fb069"/>`,
+  flower: (c) => `<g fill="${c.a}">
+    <ellipse cx="50" cy="34" rx="7" ry="14"/><ellipse cx="50" cy="66" rx="7" ry="14"/>
+    <ellipse cx="34" cy="50" rx="14" ry="7"/><ellipse cx="66" cy="50" rx="14" ry="7"/>
+    <ellipse cx="39" cy="39" rx="12" ry="6" transform="rotate(-45 39 39)"/>
+    <ellipse cx="61" cy="61" rx="12" ry="6" transform="rotate(-45 61 61)"/>
+    <ellipse cx="61" cy="39" rx="12" ry="6" transform="rotate(45 61 39)"/>
+    <ellipse cx="39" cy="61" rx="12" ry="6" transform="rotate(45 39 61)"/></g>
+    <circle cx="50" cy="50" r="9" fill="#f2c14e"/>`,
+  myoga: (c) => `<path d="M50 88c-10-8-16-24-14-38 2-10 8-16 14-16s12 6 14 16c2 14-4 30-14 38z" fill="${c.a}"/>
+    <g stroke="#fff" stroke-width="1.6" fill="none" opacity=".45"><path d="M50 36v50M40 44c-2 16 2 30 6 40M60 44c2 16-2 30-6 40"/></g>
+    <path d="M50 34c-4-8-2-14 0-18 2 4 4 10 0 18z" fill="#8fae5a"/>`,
+  sweetpotato: (c) => `<path d="M24 62c-2-12 8-22 22-26 14-4 28 0 30 10 2 12-10 22-24 26-14 4-26 2-28-10z" fill="${c.a}"/>
+    <g fill="#7a3f6b" opacity=".35"><ellipse cx="40" cy="58" rx="4" ry="2.5" transform="rotate(-16 40 58)"/>
+    <ellipse cx="58" cy="50" rx="4" ry="2.5" transform="rotate(-16 58 50)"/>
+    <ellipse cx="50" cy="66" rx="4" ry="2.5" transform="rotate(-16 50 66)"/></g>
+    <path d="M76 44c6-8 12-10 18-8-4 8-10 12-18 8z" fill="#5aa84f"/>`,
   negi: () => `<path d="M46 88V50h8v38z" fill="#f2f5e4"/>
     <path d="M50 52c-6-14-8-28-6-38 6 8 8 24 6 38zM50 52c6-14 8-28 6-38-6 8-8 24-6 38z" fill="#5aa84f"/>
     <path d="M46 60h8" stroke="#dfe8c0" stroke-width="2"/>`,
@@ -127,31 +216,162 @@ const SHAPES = {
 
 // 品目（統計の名前）→ 形と色
 const ART = {
-  'みかん': ['ball', '#ff9f1c'], 'りんご': ['apple', ''], '日本なし': ['pear', '#c9a227'],
-  '西洋なし': ['pear', '#d8c24a'], 'かき': ['persimmon', '#f2761a'], 'びわ': ['ball', '#f5b642'],
-  'もも': ['ball', '#f7a1b5'], 'すもも': ['ball', '#b0407a'], 'おうとう': ['cherry', '#d62246'],
-  'うめ': ['ball', '#9ccc65'], 'ぶどう': ['grape', '#7b4b94'], 'くり': ['chestnut', ''],
-  'パインアップル': ['pineapple', ''], 'キウイフルーツ': ['kiwi', ''],
-  'いちご': ['berry', ''], 'メロン': ['melon', '#a8c66c'], 'すいか': ['watermelon', ''],
-  'だいこん': ['daikon', '#f6f7f0'], 'かぶ': ['root', '#f6f7f0'], 'にんじん': ['root', '#f4801a'],
-  'ごぼう': ['root', '#9c6b3f'], 'れんこん': ['lotus', '#f0ead6'], 'ばれいしょ': ['potato', '#d9b382'],
-  'さといも': ['potato', '#a67b5b'], 'やまのいも': ['potato', '#cbb994'],
-  'はくさい': ['leafball', '#e4ecb4'], 'こまつな': ['leafy', '#4caf50'], 'キャベツ': ['leafball', '#a8d08d'],
-  'ちんげんさい': ['leafy', '#6bbf59'], 'ほうれんそう': ['leafy', '#2f8f2f'], 'ふき': ['stalk', '#9ccc65'],
-  'みつば': ['leafy', '#66bb6a'], 'しゅんぎく': ['leafy', '#6bbf59'], 'みずな': ['leafy', '#7cb342'],
-  'セルリー': ['stalk', '#b5d16a'], 'アスパラガス': ['asparagus', '#7cb342'],
-  'カリフラワー': ['cauliflower', '#f2efe4'], 'ブロッコリー': ['broccoli', '#4a8f3c'],
-  'レタス': ['leafball', '#c3e0a0'], 'ねぎ': ['negi', ''], 'にら': ['leafy', '#4caf50'],
-  'たまねぎ': ['bulb', '#e0a458'], 'にんにく': ['garlic', ''], 'きゅうり': ['cucumber', '#3f8f3f'],
-  'かぼちゃ': ['pumpkin', '#2f6f3f'], 'なす': ['eggplant', '#6b3fa0'], 'トマト': ['tomato', '#e63946'],
-  'ピーマン': ['bell', '#4caf50'], 'スイートコーン': ['corn', ''], 'さやいんげん': ['pod', '#6bbf59'],
-  'さやえんどう': ['pod', '#8bc34a'], 'グリーンピース': ['pod', '#6bbf59'],
-  'そらまめ': ['edamame', '#8bc34a'], 'えだまめ': ['edamame', '#6bbf59'], 'しょうが': ['ginger', '#e0b878'],
+  "みかん": ["ball", "#ff9f1c"],
+  "りんご": ["apple", ""],
+  "日本なし": ["pear", "#c9a227"],
+  "西洋なし": ["pear", "#d8c24a"],
+  "かき": ["persimmon", "#f2761a"],
+  "びわ": ["ball", "#f5b642"],
+  "もも": ["ball", "#f7a1b5"],
+  "すもも": ["ball", "#b0407a"],
+  "おうとう": ["cherry", "#d62246"],
+  "うめ": ["ball", "#9ccc65"],
+  "ぶどう": ["grape", "#7b4b94"],
+  "くり": ["chestnut", ""],
+  "パインアップル": ["pineapple", ""],
+  "キウイフルーツ": ["kiwi", ""],
+  "イヨカン（伊予柑）": ["ball", "#f79f2e"],
+  "カボス": ["yuzu", "#7cb342"],
+  "キヨミ（清見）": ["ball", "#f9a11b"],
+  "キンカン（金柑）": ["ball", "#ffb703"],
+  "グレープフルーツ": ["ball", "#f7b267"],
+  "シイクワシャー （シークヮーサー）": ["yuzu", "#8bc34a"],
+  "シラヌヒ（不知火）(デコポン)": ["ball", "#f78a1e"],
+  "スダチ": ["yuzu", "#6bbf59"],
+  "セトカ（せとか）": ["ball", "#fb8b24"],
+  "セミノール": ["ball", "#f26419"],
+  "ダイダイ": ["ball", "#f4841f"],
+  "タロッコ(ブラッドオレンジ)": ["ball", "#c9411f"],
+  "タンカン": ["ball", "#f78a1e"],
+  "ナツミカン類": ["ball", "#f7d13a"],
+  "ネーブルオレンジ": ["ball", "#f98404"],
+  "ハッサク（八朔）": ["ball", "#f7c04a"],
+  "バレンシアオレンジ": ["ball", "#f9910b"],
+  "バンペイユ（晩白柚）": ["ball", "#f2e34c"],
+  "ヒュウガナツ（日向夏）": ["ball", "#f5e05a"],
+  "ブンタン（文旦）": ["ball", "#f0dc4e"],
+  "ポンカン": ["ball", "#fb8b24"],
+  "ユズ（柚）": ["yuzu", "#f2d024"],
+  "ライム": ["lemon", "#7cb342"],
+  "レモン": ["lemon", "#f7e02e"],
+  "アケビ": ["fig", "#9b7bc4"],
+  "アンズ": ["ball", "#f3a950"],
+  "イチジク": ["fig", "#7b4b6b"],
+  "カリン": ["pear", "#e8d44d"],
+  "ギンナン(イチョウ)": ["ginkgo", "#e8d98a"],
+  "クルミ": ["nut", "#8d5524"],
+  "ｸﾛﾐﾉｳｸﾞｲｽｶｸﾞﾗ(ﾊｽｶｯﾌﾟ)": ["bunch", "#4a3f8f"],
+  "サンショウ": ["bunch", "#6bbf59"],
+  "ナツメ": ["ball", "#a8432f"],
+  "ネクタリン": ["ball", "#e8734a"],
+  "フサスグリ（カシス・カーランツ）": ["bunch", "#3b2b5f"],
+  "ブラックベリー": ["bunch", "#3a2b42"],
+  "ブルーベリー": ["bunch", "#4a6fb5"],
+  "プルーン": ["ball", "#5b3a6b"],
+  "ヘーゼルナッツ": ["nut", "#b07a3c"],
+  "マルメロ": ["pear", "#e8d44d"],
+  "ヤマブドウ": ["grape", "#4a2b5f"],
+  "ラズベリー": ["bunch", "#d62246"],
+  "アセローラ": ["ball", "#e63946"],
+  "アテモヤ": ["ball", "#9ccc65"],
+  "アボカド": ["avocado", ""],
+  "オリーブ": ["olive", "#5a7f3c"],
+  "コーヒー": ["coffee", ""],
+  "ゴレンシ（スターフルーツ）": ["starfruit", ""],
+  "パッションフルーツ": ["ball", "#6b3fa0"],
+  "バナナ": ["banana", ""],
+  "パパヤ（パパイア）": ["pear", "#f2a03d"],
+  "バンジロウ（グァバ）": ["ball", "#a8c66c"],
+  "ピタヤ（ドラゴンフルーツ）": ["dragonfruit", ""],
+  "フェイジョア": ["ball", "#7cb342"],
+  "マンゴー": ["mango", ""],
+  "ヤマモモ": ["bunch", "#b0304a"],
+  "レイシ（ライチ）": ["ball", "#d64545"],
+  "だいこん": ["daikon", "#f6f7f0"],
+  "かぶ": ["root", "#f6f7f0"],
+  "にんじん": ["root", "#f4801a"],
+  "ごぼう": ["root", "#9c6b3f"],
+  "れんこん": ["lotus", "#f0ead6"],
+  "ばれいしょ": ["potato", "#d9b382"],
+  "さといも": ["potato", "#a67b5b"],
+  "やまのいも": ["potato", "#cbb994"],
+  "はくさい": ["leafball", "#e4ecb4"],
+  "こまつな": ["leafy", "#4caf50"],
+  "キャベツ": ["leafball", "#a8d08d"],
+  "ちんげんさい": ["leafy", "#6bbf59"],
+  "ほうれんそう": ["leafy", "#2f8f2f"],
+  "ふき": ["stalk", "#9ccc65"],
+  "みつば": ["leafy", "#66bb6a"],
+  "しゅんぎく": ["leafy", "#6bbf59"],
+  "みずな": ["leafy", "#7cb342"],
+  "セルリー": ["stalk", "#b5d16a"],
+  "アスパラガス": ["asparagus", "#7cb342"],
+  "カリフラワー": ["cauliflower", "#f2efe4"],
+  "ブロッコリー": ["broccoli", "#4a8f3c"],
+  "レタス": ["leafball", "#c3e0a0"],
+  "ねぎ": ["negi", ""],
+  "にら": ["leafy", "#4caf50"],
+  "たまねぎ": ["bulb", "#e0a458"],
+  "にんにく": ["garlic", ""],
+  "きゅうり": ["cucumber", "#3f8f3f"],
+  "かぼちゃ": ["pumpkin", "#2f6f3f"],
+  "なす": ["eggplant", "#6b3fa0"],
+  "トマト": ["tomato", "#e63946"],
+  "ピーマン": ["bell", "#4caf50"],
+  "スイートコーン": ["corn", ""],
+  "さやいんげん": ["pod", "#6bbf59"],
+  "さやえんどう": ["pod", "#8bc34a"],
+  "グリーンピース": ["pod", "#6bbf59"],
+  "そらまめ": ["edamame", "#8bc34a"],
+  "えだまめ": ["edamame", "#6bbf59"],
+  "しょうが": ["ginger", "#e0b878"],
+  "いちご": ["berry", ""],
+  "メロン": ["melon", "#a8c66c"],
+  "すいか": ["watermelon", ""],
+  "かんしょ": ["sweetpotato", "#b0527a"],
+  "くわい": ["bulb", "#a8c66c"],
+  "ラディッシュ": ["root", "#e63946"],
+  "食用ゆり": ["garlic", ""],
+  "つけな": ["leafy", "#6bbf59"],
+  "芽キャベツ": ["leafball", "#7fb069"],
+  "うど": ["stalk", "#f2f0e0"],
+  "せり": ["leafy", "#4caf50"],
+  "非結球レタス": ["leafy", "#b5d99c"],
+  "わけぎ": ["negi", ""],
+  "らっきょう": ["bulb", "#f0eae0"],
+  "エシャレット": ["bulb", "#eae4d8"],
+  "なばな（主として花を食するもの）": ["flower", "#f2c94c"],
+  "なばな（主として葉茎を食するもの）": ["leafy", "#8bc34a"],
+  "タアサイ": ["leafy", "#3f8f3f"],
+  "つるむらさき": ["leafy", "#4a8f3c"],
+  "パクチー": ["parsley", "#6bbf59"],
+  "モロヘイヤ": ["leafy", "#3f8f3f"],
+  "ルッコラ": ["leafy", "#5aa84f"],
+  "しろうり": ["cucumber", "#dfe8b0"],
+  "ミニかぼちゃ": ["pumpkin", "#e07a3f"],
+  "ズッキーニ": ["cucumber", "#4a8f3c"],
+  "パプリカ": ["bell", "#f2a03d"],
+  "スナップえんどう": ["pod", "#7cb342"],
+  "オクラ": ["okra", "#5aa84f"],
+  "とうがん": ["wintermelon", "#7fa05a"],
+  "にがうり": ["bittermelon", "#4a8f3c"],
+  "かんぴょう": ["wintermelon", "#e8e0c0"],
+  "わさびだいこん": ["root", "#f0ead6"],
+  "葉しょうが": ["ginger", "#e8d0a8"],
+  "とうがらし": ["chili", "#e63946"],
+  "たで": ["leafy", "#6bbf59"],
+  "しそ": ["leafy", "#4caf50"],
+  "かいわれだいこん": ["sprout", ""],
+  "花みょうが": ["myoga", "#d4738f"],
+  "クレソン": ["parsley", "#4caf50"],
+  "パセリ": ["parsley", "#3f8f3f"],
+  "食用ぎく": ["flower", "#f2c94c"],
+  "マッシュルーム": ["mushroom", "#e8d8c0"],
+  "うるい": ["leafy", "#a8d08d"],
 };
 
 function artSvg(statName) {
-  const spec = ART[statName];
-  if (!spec) return '';
+  const spec = ART[statName] || ['ball', '#c9d6a3'];
   const [shape, color] = spec;
   return `<svg viewBox="0 0 100 100" role="img" aria-hidden="true">${SHAPES[shape]({ a: color })}</svg>`;
 }
