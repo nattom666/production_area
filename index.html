@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>やさい・くだもの さんちマップ｜とれる量 日本一はどこ？</title>
-<meta name="description" content="野菜・果物・米・肉・魚が、いちばんたくさんとれる都道府県を1位から3位まで見られます。208品目を収録。数字は農林水産省の公式統計です。">
+<title>野菜・果物 産地マップ｜とれる量 日本一はどこ？</title>
+<meta name="description" content="野菜・果物・米・肉・魚が、最も多くとれる都道府県を1位から3位まで見られます。208品目を収録。数字は農林水産省の公式統計です。">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
@@ -103,47 +103,47 @@ footer ul{padding-left:1.2em; margin:6px 0}
 <body>
 
 <header>
-  <h1>やさい・くだもの さんちマップ
-    <span class="sub">いちばん たくさん とれるのは どこ？</span>
+  <h1><ruby>野菜<rt>やさい</rt></ruby>・<ruby>果物<rt>くだもの</rt></ruby> <ruby>産地<rt>さんち</rt></ruby>マップ
+    <span class="sub"><ruby>日本一<rt>にっぽんいち</rt></ruby>の<ruby>産地<rt>さんち</rt></ruby>はどこ？</span>
   </h1>
   <div class="count" id="count"></div>
 </header>
 
 <div class="controls">
-  <input class="search" id="q" type="search" placeholder="名前でさがす（れい：とまと、青森、ウリ科）" autocomplete="off">
+  <input class="search" id="q" type="search" placeholder="名前で探す（例：トマト、青森、ウリ科）" autocomplete="off">
   <div class="tabs" id="tabs"></div>
 </div>
 
 <main>
   <div class="grid" id="grid"></div>
-  <p class="empty" id="empty" hidden>みつかりませんでした</p>
+  <p class="empty" id="empty" hidden>見つかりませんでした</p>
 </main>
 
 <footer>
   <h2>この数字について</h2>
   <p>
-    すべて<strong>農林水産省が出している統計</strong>の数字を、そのまま使っています。
-    野菜・果物・米などは<strong>収穫量</strong>（畑でとれた重さ）、牛・豚・にわとりは
-    <strong>飼っている数</strong>、魚は<strong>漁獲量</strong>（海でとれた重さ）です。
-    品目によって調べている年がちがうので、カードに年を書いています。
+    すべて<strong>農林水産省が公表している統計</strong>の数字を、そのまま使っています。
+    野菜・果物・米などは<strong>収穫量</strong>（畑でとれた重さ）、牛・豚・鶏は
+    <strong>飼養頭数・羽数</strong>（飼っている数）、魚は<strong>漁獲量</strong>（海でとれた重さ）です。
+    品目によって調査年が異なるため、カードに年を表示しています。
   </p>
   <h2>データの出典</h2>
   <ul id="srcList"></ul>
-  <p>カードの「データの出典」からも、その品目の統計表を直接ひらけます。</p>
+  <p>カードの「データの出典」からも、その品目の統計表を直接開けます。</p>
   <h2>写真について</h2>
   <p id="photoNote"></p>
   <details class="credits" id="credits">
-    <summary>写真の作者とライセンスを見る</summary>
+    <summary>写真の作者とライセンスを表示</summary>
     <ul id="creditList"></ul>
   </details>
-  <h2>気をつけてほしいこと</h2>
+  <h2>数字を見るときの注意</h2>
   <ul>
-    <li>品目によっては、国が<strong>主な産地の都道府県だけ</strong>を調べています。カードの「◯県分を調査」がその数です。調べていない県は順位に入りません。</li>
-    <li>「上位3産地だけ公表」と書いてある品目は、統計に<strong>上位3つの産地しか出ていません</strong>。4位から下は国が公表していないので分かりません。</li>
-    <li>年は品目によってちがいます。国が調べる周期がちがうためで、どれもその品目の<strong>いちばん新しい確報</strong>です。</li>
-    <li>いちご・メロン・すいかは、ふだんは果物として食べますが、統計では<strong>野菜</strong>にわけられています。このサイトでは「果物」に入れて、しるしを付けています。</li>
-    <li>魚は<strong>海でとった分だけ</strong>で、養殖（そだてたもの）は入っていません。</li>
-    <li>分類（○○科）は、その品目が植物のどのなかまかを表します。バッジを押すと同じなかまを集められます。</li>
+    <li>品目によっては、国が<strong>主産県だけ</strong>を調査しています。カードの「◯県分を調査」がその数です。調査していない県は順位に入りません。</li>
+    <li>「上位3産地だけ公表」と書いてある品目は、統計に<strong>上位3産地しか掲載されていません</strong>。4位以下は国が公表していないため分かりません。</li>
+    <li>調査年は品目により異なります。国の調査周期が違うためで、いずれもその品目の<strong>最新の確報</strong>です。</li>
+    <li>苺・メロン・西瓜は、普段は果物として食べますが、統計では<strong>野菜</strong>に分類されています。このサイトでは「果物」に入れ、印を付けています。</li>
+    <li>魚は<strong>海面漁業の漁獲量だけ</strong>で、養殖は含みません。</li>
+    <li>分類（○○科）は、その品目が植物のどの仲間かを表します。バッジを押すと同じ仲間を集められます。</li>
   </ul>
 </footer>
 
@@ -187,7 +187,7 @@ const TABS = [
   {g:'fruit', label:'果物',   kana:'くだもの'},
   {g:'veg',   label:'野菜',   kana:'やさい'},
   {g:'grain', label:'米・麦・豆', kana:'こめ・むぎ・まめ'},
-  {g:'meat',  label:'牛・豚・にわとり', kana:'うし・ぶた・にわとり'},
+  {g:'meat',  label:'牛・豚・鶏', kana:'うし・ぶた・にわとり'},
   {g:'fish',  label:'魚・貝', kana:'さかな・かい'},
 ];
 
@@ -199,7 +199,7 @@ let group = 'all', query = '';
 const cnt = {};
 DATA.items.forEach(i => cnt[i.group] = (cnt[i.group] || 0) + 1);
 document.getElementById('count').textContent =
-  `果物${cnt.fruit} 野菜${cnt.veg} 米・麦・豆${cnt.grain} 牛豚鶏${cnt.meat} 魚${cnt.fish} の ${DATA.items.length}品目`;
+  `果物${cnt.fruit}・野菜${cnt.veg}・米麦豆${cnt.grain}・畜産${cnt.meat}・魚介${cnt.fish} の 全${DATA.items.length}品目`;
 
 document.getElementById('tabs').innerHTML = TABS.map(t =>
   `<button class="tab" data-g="${t.g}" aria-pressed="${t.g === 'all'}">${ruby(t.label, t.kana)}</button>`).join('');
@@ -275,8 +275,8 @@ grid.addEventListener('click', e => {
 if (typeof PHOTOS !== 'undefined') {
   const keys = Object.keys(PHOTOS);
   document.getElementById('photoNote').textContent =
-    `品目の写真 ${keys.length}枚は、ウィキメディア・コモンズにあるものを使っています。` +
-    `写真が無い品目は、このサイトで描いたイラストを出しています。`;
+    `品目の写真 ${keys.length}枚は、ウィキメディア・コモンズの画像を使用しています。` +
+    `写真が無い品目は、このサイトで作成した図を表示しています。`;
   document.getElementById('creditList').innerHTML = keys.map(k => {
     const p = PHOTOS[k], it = DATA.items.find(i => i.stat === k);
     return `<li>${it ? it.name : k}：<a href="${p.page}" target="_blank" rel="noopener">${p.file}</a>` +
