@@ -13,6 +13,25 @@ gtag('config', 'G-V82793PT28');
 </script>
 <title>野菜・果物 産地マップ｜とれる量 日本一はどこ？</title>
 <meta name="description" content="野菜・果物・米・肉・魚が、最も多くとれる都道府県を1位から3位まで見られます。208品目を収録。数字は農林水産省の公式統計です。">
+<link rel="canonical" href="https://nattom666.github.io/production_area/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="さんちマップ">
+<meta property="og:title" content="野菜・果物 産地マップ｜とれる量 日本一はどこ？">
+<meta property="og:description" content="野菜・果物・米・肉・魚が、最も多くとれる都道府県を1位から3位まで見られます。208品目を収録。数字は農林水産省の公式統計です。">
+<meta property="og:url" content="https://nattom666.github.io/production_area/">
+<meta property="og:image" content="https://nattom666.github.io/production_area/apple-touch-icon.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "さんちマップ",
+ "alternateName": "野菜・果物 産地マップ",
+ "url": "https://nattom666.github.io/production_area/",
+ "description": "野菜・果物・米・肉・魚が、最も多くとれる都道府県を1位から3位まで見られます。208品目を収録。数字は農林水産省の公式統計です。",
+ "inLanguage": "ja"
+}
+</script>
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
@@ -98,6 +117,15 @@ ol.rank li{display:flex; align-items:center; gap:9px; padding:5px 0}
 }
 .card-foot a{color:var(--green); text-decoration:none; white-space:nowrap; border-bottom:1px dotted var(--green)}
 .empty{text-align:center; color:var(--sub); padding:40px 0}
+.more{max-width:1040px; margin:8px auto 0; padding:0 16px}
+.more h2{font-size:16px; margin:18px 0 8px}
+.more ul{list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:10px}
+.more a{
+  display:inline-block; padding:10px 18px; background:#fff; text-decoration:none;
+  border:2px solid var(--line); border-radius:999px; color:var(--ink);
+}
+.more a:hover{border-color:var(--accent)}
+.more .sub{font-size:12px; color:var(--sub); display:block; margin-top:6px}
 footer{max-width:1040px; margin:0 auto; padding:24px 16px 48px; font-size:13px; color:var(--sub)}
 footer h2{font-size:15px; color:var(--ink); margin:18px 0 6px}
 footer a{color:var(--green)}
@@ -126,6 +154,15 @@ footer ul{padding-left:1.2em; margin:6px 0}
   <div class="grid" id="grid"></div>
   <p class="empty" id="empty" hidden>見つかりませんでした</p>
 </main>
+
+<nav class="more">
+  <h2>1つずつ、くわしく見る</h2>
+  <ul>
+    <li><a href="item/">品目から探す（208品目）</a></li>
+    <li><a href="pref/">都道府県から探す（47都道府県）</a></li>
+  </ul>
+  <span class="sub">品目ごと・県ごとのページに、上位3県ととれた量、統計の出典をまとめています。</span>
+</nav>
 
 <footer>
   <h2>この数字について</h2>

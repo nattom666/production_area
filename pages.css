@@ -1,0 +1,57 @@
+/* build-pages.py が作る品目ページ・県ページ用。index.html とは別。 */
+:root{
+  --bg:#fff9f0; --card:#fff; --ink:#3b3226; --sub:#8a7c6a; --line:#efe3d2;
+  --gold:#f5b700; --silver:#b9c2cc; --bronze:#d08b52; --accent:#ff8c42;
+}
+*{box-sizing:border-box}
+body{
+  margin:0 auto; max-width:760px; padding:16px; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN",-apple-system,"BIZ UDPGothic","Meiryo",sans-serif;
+  line-height:1.8; -webkit-text-size-adjust:100%;
+}
+ruby{ruby-align:center}
+rt{font-size:.48em; color:var(--sub); font-weight:normal; line-height:1.1}
+a{color:#c25a1a}
+h1{font-size:26px; line-height:1.5; margin:8px 0 4px}
+h1 small{display:block; font-size:14px; color:var(--sub); font-weight:normal; margin-top:6px}
+h2{font-size:18px; margin:28px 0 8px; padding-left:10px; border-left:5px solid var(--accent)}
+.crumbs{font-size:13px; color:var(--sub); padding:6px 0}
+.crumbs a{color:var(--sub)}
+.lead{
+  background:var(--card); border:2px solid var(--line); border-radius:14px;
+  padding:14px 16px; margin:14px 0;
+}
+.photo{margin:16px 0; text-align:center}
+.photo img{max-width:100%; height:auto; border-radius:14px; border:2px solid var(--line)}
+.photo figcaption{font-size:12px; color:var(--sub); margin-top:6px}
+table.rank{
+  width:100%; border-collapse:collapse; background:var(--card);
+  border:2px solid var(--line); border-radius:14px; overflow:hidden; margin:10px 0;
+}
+table.rank caption{text-align:left; font-size:13px; color:var(--sub); padding:4px 2px}
+table.rank th,table.rank td{padding:10px 12px; border-bottom:1px solid var(--line); text-align:left}
+table.rank th{background:#fdf4e6; font-size:13px; color:var(--sub); font-weight:normal}
+table.rank tr:last-child td{border-bottom:none}
+tr.r1 td:first-child{color:#a97c00; font-weight:bold; background:#fff8e0}
+tr.r2 td:first-child{color:#6f7a86; font-weight:bold}
+tr.r3 td:first-child{color:#9c6236; font-weight:bold}
+ul.facts{padding-left:1.2em; margin:8px 0}
+ul.facts .warn{color:#b4531c}
+ul.links{list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+ul.links li{margin:0}
+ul.links a{
+  display:inline-block; padding:6px 14px; background:var(--card);
+  border:2px solid var(--line); border-radius:999px; text-decoration:none;
+}
+ul.links a:hover{border-color:var(--accent)}
+ul.links .cnt{font-size:11px; color:var(--sub); margin-left:4px}
+a.src{
+  display:inline-block; margin:4px 0; padding:8px 16px; border-radius:999px;
+  background:var(--card); border:2px solid var(--line); text-decoration:none;
+}
+.foot{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); font-size:13px}
+.foot .note{color:var(--sub)}
+@media (max-width:480px){
+  h1{font-size:22px}
+  table.rank th,table.rank td{padding:8px 8px; font-size:14px}
+}
