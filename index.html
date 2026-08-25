@@ -185,6 +185,7 @@ footer ul{padding-left:1.2em; margin:6px 0}
   <ul>
     <li>品目によっては、国が<strong>主産県だけ</strong>を調査しています。カードの「◯県分を調査」がその数です。調査していない県は順位に入りません。</li>
     <li>「上位3産地だけ公表」と書いてある品目は、統計に<strong>上位3産地しか掲載されていません</strong>。4位以下は国が公表していないため分かりません。</li>
+    <li>「上位3産地だけ公表」の品目は、産地の量が<strong>1t単位に丸めて</strong>公表されています（全国の量は0.1t単位）。とれた量が少ない品目では、この丸めのせいで産地の量を足すと全国を少し超えることがあります。割合に「約」を付けているのはそのためです。</li>
     <li>調査年は品目により異なります。国の調査周期が違うためで、いずれもその品目の<strong>最新の確報</strong>です。</li>
     <li>苺・メロン・西瓜は、普段は果物として食べますが、統計では<strong>野菜</strong>に分類されています。このサイトでは「果物」に入れ、印を付けています。</li>
     <li>魚は<strong>海面漁業の漁獲量だけ</strong>で、養殖は含みません。</li>
@@ -221,6 +222,14 @@ function thumb(it){
   const p = (typeof PHOTOS !== 'undefined') && PHOTOS[it.stat];
   return p ? `<img src="${p.src}" alt="${it.name}の写真" loading="lazy" decoding="async">`
            : artSvg(it.stat);
+}
+
+// 特産果樹の統計は、全国の量を 0.1t 単位、産地の量を 1t 単位に丸めて公表している。
+// 少ない品目ほど丸めの影響が大きく、産地の量が全国を超えることがある
+// （コーヒーは全国 1.6t に対し「鹿児島(2)」）。割合が 100% を超えたらそう書く。
+function shareText(it, s){
+  if (s > 100) return '全国のほぼ全部';
+  return `全国の${it.partial ? '約' : ''} ${s.toFixed(s < 10 ? 1 : 0)}%`;
 }
 
 function ruby(text, kana){
@@ -260,7 +269,7 @@ function card(it){
       <span class="medal">${i+1}</span>
       <span class="pref">${ruby(t.pref, t.kana)}</span>
       <span class="amount">${amount(it, t.t)}
-        ${share !== null ? `<span class="share">全国の ${share.toFixed(share < 10 ? 1 : 0)}%</span>` : ''}
+        ${share !== null ? `<span class="share">${shareText(it, share)}</span>` : ''}
         <span class="bar"><i style="width:${(t.t / max * 100).toFixed(1)}%"></i></span>
       </span></li>`;
   }).join('');
