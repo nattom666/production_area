@@ -35,6 +35,9 @@ table.rank tr:last-child td{border-bottom:none}
 tr.r1 td:first-child{color:#a97c00; font-weight:bold; background:#fff8e0}
 tr.r2 td:first-child{color:#6f7a86; font-weight:bold}
 tr.r3 td:first-child{color:#9c6236; font-weight:bold}
+dl.qa{margin:10px 0}
+dl.qa dt{font-weight:bold; margin:14px 0 0}
+dl.qa dd{margin:4px 0 0; padding-left:12px; border-left:4px solid var(--line)}
 ul.facts{padding-left:1.2em; margin:8px 0}
 ul.facts .warn{color:#b4531c}
 ul.links{list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
