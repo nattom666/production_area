@@ -209,9 +209,10 @@ footer ul{padding-left:1.2em; margin:6px 0}
   </ul>
 </footer>
 
-<script src="data.js"></script>
-<script src="photos.js"></script>
-<script src="art.js"></script>
+<!-- ?v= はキャッシュ対策。data.js を作り直したらこの日付も変える（README参照） -->
+<script src="data.js?v=20261013"></script>
+<script src="photos.js?v=20261013"></script>
+<script src="art.js?v=20261013"></script>
 <script>
 // 141700 -> 「14万1700」。170776000 -> 「1億7077万6000」
 function ja(n){
@@ -257,6 +258,15 @@ function norm(s){
     .replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
 }
 
+// 県名からその県のページへのリンク。万一 data.js が古くて対応表が無くても、
+// リンクを外した県名を出すだけにして、カードそのものは出す。
+function prefLink(t){
+  const slug = (typeof DATA.prefs === 'object' && DATA.prefs) ? DATA.prefs[t.pref] : null;
+  const label = ruby(t.pref, t.kana);
+  return slug ? `<a class="pref" href="pref/${slug}.html">${label}</a>`
+              : `<span class="pref">${label}</span>`;
+}
+
 function ruby(text, kana){
   return kana && kana !== text ? `<ruby>${text}<rt>${kana}</rt></ruby>` : text;
 }
@@ -299,7 +309,7 @@ function card(it){
     const share = it.national ? (t.t / it.national * 100) : null;
     return `<li class="r${i+1}">
       <span class="medal">${i+1}</span>
-      <a class="pref" href="pref/${DATA.prefs[t.pref]}.html">${ruby(t.pref, t.kana)}</a>
+      ${prefLink(t)}
       <span class="amount">${amount(it, t.t)}
         ${share !== null ? `<span class="share">${shareText(it, share)}</span>` : ''}
         <span class="bar"><i style="width:${(t.t / max * 100).toFixed(1)}%"></i></span>
