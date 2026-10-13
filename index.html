@@ -11,13 +11,13 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-V82793PT28');
 </script>
-<title>生産量 都道府県ランキング｜野菜・果物・米・肉・魚 208品目の日本一</title>
-<meta name="description" content="野菜・果物・米・肉・魚あわせて208品目の生産量を、都道府県ランキングで見られます。1位から3位までの都道府県と、とれた量・全国に占める割合つき。数字は農林水産省の統計です。">
+<title>生産量 都道府県ランキング｜野菜・果物・米・肉・魚 243品目の日本一</title>
+<meta name="description" content="野菜・果物・米・肉・魚・きのこ・海藻あわせて243品目の生産量を、都道府県ランキングで見られます。1位から3位までの都道府県と、とれた量・全国に占める割合つき。数字は農林水産省の統計です。">
 <link rel="canonical" href="https://nattom666.github.io/production_area/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="都道府県別 生産量ランキング">
-<meta property="og:title" content="生産量 都道府県ランキング｜野菜・果物・米・肉・魚 208品目の日本一">
-<meta property="og:description" content="野菜・果物・米・肉・魚あわせて208品目の生産量を、都道府県ランキングで見られます。1位から3位までの都道府県と、とれた量・全国に占める割合つき。数字は農林水産省の統計です。">
+<meta property="og:title" content="生産量 都道府県ランキング｜野菜・果物・米・肉・魚 243品目の日本一">
+<meta property="og:description" content="野菜・果物・米・肉・魚・きのこ・海藻あわせて243品目の生産量を、都道府県ランキングで見られます。1位から3位までの都道府県と、とれた量・全国に占める割合つき。数字は農林水産省の統計です。">
 <meta property="og:url" content="https://nattom666.github.io/production_area/">
 <meta property="og:image" content="https://nattom666.github.io/production_area/apple-touch-icon.png">
 <meta name="twitter:card" content="summary">
@@ -26,9 +26,9 @@ gtag('config', 'G-V82793PT28');
  "@context": "https://schema.org",
  "@type": "WebSite",
  "name": "都道府県別 生産量ランキング",
- "alternateName": ["生産量ランキング", "野菜・果物・米・肉・魚の生産量 都道府県ランキング"],
+ "alternateName": ["生産量ランキング", "野菜・果物・米・肉・魚・きのこの生産量 都道府県ランキング"],
  "url": "https://nattom666.github.io/production_area/",
- "description": "野菜・果物・米・肉・魚あわせて208品目の生産量を、都道府県ランキングで見られます。1位から3位までの都道府県と、とれた量・全国に占める割合つき。数字は農林水産省の統計です。",
+ "description": "野菜・果物・米・肉・魚・きのこ・海藻あわせて243品目の生産量を、都道府県ランキングで見られます。1位から3位までの都道府県と、とれた量・全国に占める割合つき。数字は農林水産省の統計です。",
  "inLanguage": "ja"
 }
 </script>
@@ -94,6 +94,7 @@ main{max-width:1040px; margin:0 auto; padding:16px}
 .badge{font-size:11px; color:var(--sub); background:#f6f0e6; border-radius:999px; padding:1px 8px}
 .badge.y{background:#eaf2e4; color:#5c7a4a}
 .badge.w{background:#fdeee2; color:#a86a3d}
+.badge.f2{background:#e4f0f5; color:#3f7186}
 button.badge.f{
   border:0; font-family:inherit; cursor:pointer; background:#eef0f7; color:#5a6480;
 }
@@ -129,6 +130,7 @@ ol.rank li{display:flex; align-items:center; gap:9px; padding:5px 0}
 footer{max-width:1040px; margin:0 auto; padding:24px 16px 48px; font-size:13px; color:var(--sub)}
 footer h2{font-size:15px; color:var(--ink); margin:18px 0 6px}
 footer a{color:var(--green)}
+footer .updated{background:#fff; border:2px solid var(--line); border-radius:12px; padding:10px 14px}
 footer ul{padding-left:1.2em; margin:6px 0}
 @media (max-width:420px){
   h1{font-size:22px}
@@ -140,7 +142,7 @@ footer ul{padding-left:1.2em; margin:6px 0}
 
 <header>
   <h1><ruby>生産量<rt>せいさんりょう</rt></ruby> <ruby>都道府県<rt>とどうふけん</rt></ruby>ランキング
-    <span class="sub"><ruby>野菜<rt>やさい</rt></ruby>・<ruby>果物<rt>くだもの</rt></ruby>・<ruby>米<rt>こめ</rt></ruby>・<ruby>肉<rt>にく</rt></ruby>・<ruby>魚<rt>さかな</rt></ruby>208<ruby>品目<rt>ひんもく</rt></ruby>。<ruby>日本一<rt>にっぽんいち</rt></ruby>の<ruby>産地<rt>さんち</rt></ruby>はどこ？</span>
+    <span class="sub"><ruby>野菜<rt>やさい</rt></ruby>・<ruby>果物<rt>くだもの</rt></ruby>・<ruby>米<rt>こめ</rt></ruby>・<ruby>肉<rt>にく</rt></ruby>・<ruby>魚<rt>さかな</rt></ruby>・きのこ243<ruby>品目<rt>ひんもく</rt></ruby>。<ruby>日本一<rt>にっぽんいち</rt></ruby>の<ruby>産地<rt>さんち</rt></ruby>はどこ？</span>
   </h1>
   <div class="count" id="count"></div>
 </header>
@@ -158,18 +160,21 @@ footer ul{padding-left:1.2em; margin:6px 0}
 <nav class="more">
   <h2>品目別・都道府県別の生産量ランキング</h2>
   <ul>
-    <li><a href="item/">品目別の生産量ランキング（208品目）</a></li>
+    <li><a href="item/">品目別の生産量ランキング（243品目）</a></li>
     <li><a href="pref/">都道府県別の生産量ランキング（47都道府県）</a></li>
   </ul>
   <span class="sub">品目ごと・県ごとのページに、生産量が多い上位3県ととれた量、統計の出典をまとめています。</span>
 </nav>
 
 <footer>
+  <p class="updated">最終更新：2026年10月13日（きのこ・海藻・養殖の魚介を追加し、米・麦・豆・茶・さつまいも・牛・魚介の統計を最新の確報に更新）</p>
   <h2>この数字について</h2>
   <p>
     すべて<strong>農林水産省が公表している統計</strong>の数字を、そのまま使っています。
-    野菜・果物・米などは<strong>収穫量</strong>（畑でとれた重さ）、牛・豚・鶏は
-    <strong>飼養頭数・羽数</strong>（飼っている数）、魚は<strong>漁獲量</strong>（海でとれた重さ）です。
+    野菜・果物・米などは<strong>収穫量</strong>（畑でとれた重さ）、きのこは<strong>生産量</strong>、
+    牛・豚・鶏は<strong>飼養頭数・羽数</strong>（飼っている数）、魚や貝は
+    <strong>漁獲量</strong>（海・川・湖でとれた重さ）、「養殖」のしるしがあるものは
+    <strong>収獲量</strong>（育てて取り上げた重さ）です。
     品目によって調査年が異なるため、カードに年を表示しています。
   </p>
   <h2>データの出典</h2>
@@ -188,7 +193,11 @@ footer ul{padding-left:1.2em; margin:6px 0}
     <li>「上位3産地だけ公表」の品目は、産地の量が<strong>1t単位に丸めて</strong>公表されています（全国の量は0.1t単位）。とれた量が少ない品目では、この丸めのせいで産地の量を足すと全国を少し超えることがあります。割合に「約」を付けているのと、産地が1県だけの品目を100%と書いているのはそのためです。</li>
     <li>調査年は品目により異なります。国の調査周期が違うためで、いずれもその品目の<strong>最新の確報</strong>です。</li>
     <li>苺・メロン・西瓜は、普段は果物として食べますが、統計では<strong>野菜</strong>に分類されています。このサイトでは「果物」に入れ、印を付けています。</li>
-    <li>魚は<strong>海面漁業の漁獲量だけ</strong>で、養殖は含みません。</li>
+    <li>魚や貝は、海でとった分（漁獲量）と<strong>養殖</strong>で育てた分（収獲量）を、
+      べつの品目として分けています。カードの「養殖」「川や湖」「川や湖の養殖」のしるしが
+      どの統計の数字かを表します。「鰤」は海でとった分、「養殖鰤」は養殖の分です。</li>
+    <li>きのこは林野庁の<strong>特用林産基礎資料</strong>の数字です。生産量を公表していない県
+      （統計で「x」と伏せられている県）は順位に入りません。</li>
     <li>分類（○○科）は、その品目が植物のどの仲間かを表します。バッジを押すと同じ仲間を集められます。</li>
   </ul>
 </footer>
@@ -278,7 +287,8 @@ function card(it){
   const badges = [
     `<button class="badge f" data-family="${it.family}">${it.family}</button>`,
     `<span class="badge y">${it.year}</span>`,
-  ].concat(fruity ? ['<span class="badge">統計では野菜</span>'] : [])
+  ].concat(it.tag ? [`<span class="badge f2">${it.tag}</span>`] : [])
+   .concat(fruity ? ['<span class="badge">統計では野菜</span>'] : [])
    .concat(it.partial ? ['<span class="badge w">上位3産地だけ公表</span>'] : []);
   return `<article class="card">
     <div class="card-head">
