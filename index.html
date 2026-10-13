@@ -55,6 +55,7 @@ h1 .sub{display:block; font-size:13px; color:var(--sub); font-weight:normal; mar
   display:inline-block; margin-top:10px; padding:4px 14px; border-radius:999px;
   background:#fff; border:2px solid var(--line); font-size:13px; color:var(--sub);
 }
+.hint{margin:8px 0 0; font-size:13px; color:var(--sub)}
 .controls{
   position:sticky; top:0; z-index:5; background:var(--bg);
   padding:10px 16px 12px; border-bottom:1px solid var(--line);
@@ -106,7 +107,11 @@ ol.rank li{display:flex; align-items:center; gap:9px; padding:5px 0}
   font-size:13px; font-weight:bold; color:#fff;
 }
 .r1 .medal{background:var(--gold)} .r2 .medal{background:var(--silver)} .r3 .medal{background:var(--bronze)}
-.pref{font-size:17px; font-weight:bold; min-width:76px}
+.pref{
+  font-size:17px; font-weight:bold; min-width:76px; color:inherit;
+  text-decoration:none; border-bottom:2px dotted var(--line);
+}
+.pref:hover{border-bottom-color:var(--accent)}
 .amount{display:block; margin-left:auto; min-width:116px; text-align:right; font-size:14px; white-space:nowrap}
 .amount .share{display:block; font-size:11px; color:var(--sub)}
 .bar{display:block; height:6px; border-radius:3px; background:#f1e8dc; margin-top:2px; overflow:hidden}
@@ -145,10 +150,12 @@ footer ul{padding-left:1.2em; margin:6px 0}
     <span class="sub"><ruby>野菜<rt>やさい</rt></ruby>・<ruby>果物<rt>くだもの</rt></ruby>・<ruby>米<rt>こめ</rt></ruby>・<ruby>肉<rt>にく</rt></ruby>・<ruby>魚<rt>さかな</rt></ruby>・きのこ243<ruby>品目<rt>ひんもく</rt></ruby>。<ruby>日本一<rt>にっぽんいち</rt></ruby>の<ruby>産地<rt>さんち</rt></ruby>はどこ？</span>
   </h1>
   <div class="count" id="count"></div>
+  <p class="hint"><ruby>県名<rt>けんめい</rt></ruby>をおすと、その<ruby>県<rt>けん</rt></ruby>が
+    <ruby>日本一<rt>にっぽんいち</rt></ruby>のものを<ruby>全部<rt>ぜんぶ</rt></ruby>まとめて<ruby>見<rt>み</rt></ruby>られます</p>
 </header>
 
 <div class="controls">
-  <input class="search" id="q" type="search" placeholder="名前で探す（例：トマト、青森、ウリ科）" autocomplete="off">
+  <input class="search" id="q" type="search" placeholder="名前で探す（例：りんご・リンゴ・林檎、青森、ウリ科）" autocomplete="off">
   <div class="tabs" id="tabs"></div>
 </div>
 
@@ -242,6 +249,14 @@ function shareText(it, s){
   return `全国の${it.partial ? '約' : ''} ${s.toFixed(s < 10 ? 1 : 0)}%`;
 }
 
+// 検索用に文字をそろえる。「リンゴ」「りんご」「林檎」のどれで打っても引っかかるように、
+// 全角半角をそろえ（NFKC）、カタカナをひらがなに倒し、英字を小文字にしてから比べる。
+// 漢字はそのまま残るので、表示名の漢字でも当たる。
+function norm(s){
+  return (s || '').normalize('NFKC').toLowerCase()
+    .replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
+}
+
 function ruby(text, kana){
   return kana && kana !== text ? `<ruby>${text}<rt>${kana}</rt></ruby>` : text;
 }
@@ -260,6 +275,13 @@ const empty = document.getElementById('empty');
 const input = document.getElementById('q');
 let group = 'all', query = '';
 
+// 品目名（漢字）・よみ・統計の品目名・分類・上位3県の県名とよみ。全部まとめて1本の文字列にする。
+DATA.items.forEach(it => {
+  const parts = [it.name, it.kana, it.stat, it.family];
+  it.top.forEach(t => parts.push(t.pref, t.kana));
+  it.find = norm(parts.join(' '));
+});
+
 const cnt = {};
 DATA.items.forEach(i => cnt[i.group] = (cnt[i.group] || 0) + 1);
 document.getElementById('count').textContent =
@@ -277,7 +299,7 @@ function card(it){
     const share = it.national ? (t.t / it.national * 100) : null;
     return `<li class="r${i+1}">
       <span class="medal">${i+1}</span>
-      <span class="pref">${ruby(t.pref, t.kana)}</span>
+      <a class="pref" href="pref/${DATA.prefs[t.pref]}.html">${ruby(t.pref, t.kana)}</a>
       <span class="amount">${amount(it, t.t)}
         ${share !== null ? `<span class="share">${shareText(it, share)}</span>` : ''}
         <span class="bar"><i style="width:${(t.t / max * 100).toFixed(1)}%"></i></span>
@@ -308,11 +330,9 @@ function card(it){
 }
 
 function render(){
-  const q = query.trim().toLowerCase();
+  const q = norm(query.trim());
   const list = DATA.items.filter(it =>
-    (group === 'all' || it.group === group) &&
-    (!q || it.name.toLowerCase().includes(q) || it.kana.includes(q) || it.stat.includes(q) ||
-     it.family.includes(q) || it.top.some(t => t.pref.includes(q) || t.kana.includes(q))));
+    (group === 'all' || it.group === group) && (!q || it.find.includes(q)));
   grid.innerHTML = list.map(card).join('');
   empty.hidden = list.length > 0;
 }
