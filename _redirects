@@ -1,0 +1,6 @@
+# Cloudflare Pages の転送設定。品目の URL を変えたときに、古い URL から新しい URL へ 301 で移す。
+# 2026-11-17：子ども向けの読みから作っていた URL を大人向けに変更
+/item/tamagononiwatori /item/sairankei 301
+/item/tamagononiwatori.html /item/sairankei 301
+/item/onikunoniwatori /item/buroira 301
+/item/onikunoniwatori.html /item/buroira 301
