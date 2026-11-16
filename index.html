@@ -92,6 +92,10 @@ main{max-width:1040px; margin:0 auto; padding:16px}
 .credits ul{max-height:340px; overflow:auto; font-size:12px; line-height:1.6}
 .credits li{margin-bottom:2px}
 .name{font-size:21px; font-weight:bold; line-height:1.35}
+.name a{color:inherit; text-decoration:none}
+.name a:hover{color:var(--accent)}
+.more-link{display:block; margin-top:10px; padding:8px 0 2px; text-align:center; font-size:14px; font-weight:bold; color:#b4501a; text-decoration:none; border-top:1px dashed var(--line)}
+.more-link:hover{color:var(--accent)}
 .badges{margin-top:4px; display:flex; flex-wrap:wrap; gap:4px}
 .badge{font-size:11px; color:var(--sub); background:#f6f0e6; border-radius:999px; padding:1px 8px}
 .badge.y{background:#eaf2e4; color:#5c7a4a}
@@ -208,12 +212,14 @@ footer ul{padding-left:1.2em; margin:6px 0}
       （統計で「x」と伏せられている県）は順位に入りません。</li>
     <li>分類（○○科）は、その品目が植物のどの仲間かを表します。バッジを押すと同じ仲間を集められます。</li>
   </ul>
+  <!-- お問い合わせフォームができたら「・ <a href="contact">お問い合わせ</a>」を足す（README参照） -->
+  <p><a href="about">運営者情報</a> ・ <a href="privacy">プライバシーポリシー</a></p>
 </footer>
 
 <!-- ?v= はキャッシュ対策。data.js を作り直したらこの日付も変える（README参照） -->
-<script src="data.js?v=20261110"></script>
-<script src="photos.js?v=20261110"></script>
-<script src="art.js?v=20261110"></script>
+<script src="data.js?v=20261116"></script>
+<script src="photos.js?v=20261116"></script>
+<script src="art.js?v=20261116"></script>
 <script>
 // 141700 -> 「14万1700」。170776000 -> 「1億7077万6000」
 function ja(n){
@@ -327,7 +333,7 @@ function card(it){
     <div class="card-head">
       <div class="thumb">${thumb(it)}</div>
       <div>
-        <div class="name">${ruby(it.name, it.kana)}</div>
+        <div class="name"><a href="item/${it.slug}">${ruby(it.name, it.kana)}</a></div>
         <div class="badges">${badges.join('')}</div>
       </div>
     </div>
@@ -337,8 +343,11 @@ function card(it){
         !it.partial && it.prefCount ? (it.national ? '／' : '') + it.prefCount + '県分を調査' : ''}</span>
       <a href="${it.source}" target="_blank" rel="noopener">データの出典</a>
     </div>
+    <a class="more-link" href="item/${it.slug}">${it.prefCount > 3 && !it.partial ? '全' + it.prefCount + '県の順位' : 'くわしく見る'}${TREND_ITEMS.has(it.stat) ? '・推移' : ''} ›</a>
   </article>`;
 }
+
+const TREND_ITEMS = new Set(DATA.items.filter(it => it.trend).map(it => it.stat));
 
 function render(){
   const q = norm(query.trim());
