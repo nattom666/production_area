@@ -55,17 +55,24 @@ a.src{
 .foot{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); font-size:13px}
 .foot .note{color:var(--sub)}
 .foot .policy{font-size:12px}
-.pr{position:relative; background:var(--card); border:2px solid var(--line); border-radius:14px; padding:12px 14px; margin:16px 0}
-.pr-tag{position:absolute; top:10px; right:12px; font-size:11px; color:#5c5246; background:#f1e9dd; border-radius:4px; padding:0 6px}
-.pr-title{margin:0; font-weight:bold}
-.pr-sub{margin:2px 0 0; font-size:13px; color:var(--sub)}
-.pr-btns{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-.pr-btn{flex:1 1 140px; text-align:center; padding:9px 10px; border-radius:999px; border:2px solid var(--line); text-decoration:none; font-size:14px; min-height:44px; box-sizing:border-box}
+.pr{position:relative; background:var(--card); border:2px solid var(--line); border-radius:14px; padding:12px 14px 14px; margin:16px 0}
+.pr-head{display:flex; align-items:flex-start; gap:10px}
+.pr-title{flex:1; min-width:0; margin:0; font-weight:bold; line-height:1.6}
+.pr-tag{flex:none; font-size:11px; line-height:1.6; color:#5c5246; background:#f1e9dd; border-radius:4px; padding:0 6px; margin-top:2px}
+.pr-sub{margin:4px 0 0; font-size:13px; color:var(--sub)}
+.pr-btns{display:grid; grid-template-columns:1fr; gap:8px; margin-top:12px}
+.pr-btn{display:flex; align-items:center; justify-content:center; text-align:center; padding:10px 12px; min-height:46px;
+  border-radius:999px; border:2px solid var(--line); text-decoration:none; font-size:15px; line-height:1.4; box-sizing:border-box}
 .pr-btn.main{border-color:var(--accent); font-weight:bold}
-.pr-imp{position:absolute; width:1px; height:1px; border:0}
-.pr-banner{position:relative; margin:0 0 16px; text-align:center}
-.pr-banner .pr-tag{top:4px; right:4px}
-.pr-banner img{max-width:100%; height:auto; border-radius:8px; vertical-align:middle}
+.pr-imp{position:absolute; width:1px; height:1px; border:0; opacity:0}
+.pr-banner{position:relative; width:fit-content; max-width:100%; margin:0 auto 16px; display:flex; flex-direction:column; gap:4px}
+.pr-banner .pr-tag{align-self:flex-end; margin:0}
+.pr-banner a{display:block; max-width:100%}
+.pr-banner img{display:block; max-width:100%; height:auto; border-radius:8px}
+@media (min-width:600px){
+  .pr-btns{grid-template-columns:repeat(3, minmax(0, 1fr))}
+  .pr-btn{font-size:14px; padding:10px 8px}
+}
 .tbl{overflow-x:auto}
 table.trend td small{display:block; font-size:12px; color:var(--sub)}
 table.trend .bar{display:block; height:6px; border-radius:3px; background:#f1e8dc; margin-top:4px; overflow:hidden; min-width:60px}
