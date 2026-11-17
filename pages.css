@@ -63,6 +63,9 @@ a.src{
 .pr-btn{flex:1 1 140px; text-align:center; padding:9px 10px; border-radius:999px; border:2px solid var(--line); text-decoration:none; font-size:14px; min-height:44px; box-sizing:border-box}
 .pr-btn.main{border-color:var(--accent); font-weight:bold}
 .pr-imp{position:absolute; width:1px; height:1px; border:0}
+.pr-banner{position:relative; margin:0 0 16px; text-align:center}
+.pr-banner .pr-tag{top:4px; right:4px}
+.pr-banner img{max-width:100%; height:auto; border-radius:8px; vertical-align:middle}
 .tbl{overflow-x:auto}
 table.trend td small{display:block; font-size:12px; color:var(--sub)}
 table.trend .bar{display:block; height:6px; border-radius:3px; background:#f1e8dc; margin-top:4px; overflow:hidden; min-width:60px}
