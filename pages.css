@@ -55,6 +55,14 @@ a.src{
 .foot{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); font-size:13px}
 .foot .note{color:var(--sub)}
 .foot .policy{font-size:12px}
+.pr{position:relative; background:var(--card); border:2px solid var(--line); border-radius:14px; padding:12px 14px; margin:16px 0}
+.pr-tag{position:absolute; top:10px; right:12px; font-size:11px; color:#5c5246; background:#f1e9dd; border-radius:4px; padding:0 6px}
+.pr-title{margin:0; font-weight:bold}
+.pr-sub{margin:2px 0 0; font-size:13px; color:var(--sub)}
+.pr-btns{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.pr-btn{flex:1 1 140px; text-align:center; padding:9px 10px; border-radius:999px; border:2px solid var(--line); text-decoration:none; font-size:14px; min-height:44px; box-sizing:border-box}
+.pr-btn.main{border-color:var(--accent); font-weight:bold}
+.pr-imp{position:absolute; width:1px; height:1px; border:0}
 .tbl{overflow-x:auto}
 table.trend td small{display:block; font-size:12px; color:var(--sub)}
 table.trend .bar{display:block; height:6px; border-radius:3px; background:#f1e8dc; margin-top:4px; overflow:hidden; min-width:60px}
