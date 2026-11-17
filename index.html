@@ -42,54 +42,58 @@ gtag('config', 'G-TD0R5G5M0F');
 <link rel="icon" href="icon-48.png" type="image/png" sizes="48x48">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
 <style>
+/* デザイン：白×深緑のミニマル（2026-11-17）。品目ページ（pages.css）と同じ色・角丸にそろえる */
 :root{
-  --bg:#fff9f0; --card:#fff; --ink:#3b3226; --sub:#8a7c6a; --line:#efe3d2;
-  --gold:#f5b700; --silver:#b9c2cc; --bronze:#d08b52;
-  --accent:#ff8c42; --green:#5aa84f;
+  --bg:#ffffff; --card:#ffffff; --ink:#1d211f; --sub:#5f6661; --line:#e3e6e2; --soft:#f4f6f4;
+  --accent:#1f6b4f; --accent-soft:#eaf3ee; --green:#1f6b4f;
+  --gold:#1f6b4f; --silver:#7a8a82; --bronze:#a7b5ad; --radius:6px;
 }
 *{box-sizing:border-box}
 body{
   margin:0; background:var(--bg); color:var(--ink);
-  font-family:"Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN",-apple-system,"BIZ UDPGothic","Meiryo",sans-serif;
-  line-height:1.7; -webkit-text-size-adjust:100%;
+  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+  line-height:1.7; letter-spacing:.01em; -webkit-text-size-adjust:100%;
 }
-ruby{ruby-align:center}
-rt{font-size:.48em; color:var(--sub); font-weight:normal; line-height:1.1}
-header{padding:20px 16px 8px; text-align:center}
-h1{margin:0; font-size:26px; letter-spacing:.02em}
-h1 .sub{display:block; font-size:13px; color:var(--sub); font-weight:normal; margin-top:8px}
+a{color:var(--green); text-underline-offset:2px}
+header{padding:28px 16px 12px; text-align:center}
+h1{margin:0; font-size:28px; letter-spacing:.02em; font-weight:700}
+h1 .sub{display:block; font-size:14px; color:var(--sub); font-weight:normal; margin-top:8px}
+h1,h1 .sub,.count,.hint{text-wrap:balance}
 .count{
-  display:inline-block; margin-top:10px; padding:4px 14px; border-radius:999px;
-  background:#fff; border:2px solid var(--line); font-size:13px; color:var(--sub);
+  display:inline-block; margin-top:12px; padding:3px 12px; border-radius:var(--radius);
+  background:var(--soft); border:1px solid var(--line); font-size:13px; color:var(--sub);
 }
 .hint{margin:8px 0 0; font-size:13px; color:var(--sub)}
 .controls{
-  position:sticky; top:0; z-index:5; background:var(--bg);
+  position:sticky; top:0; z-index:5; background:rgba(255,255,255,.96);
   padding:10px 16px 12px; border-bottom:1px solid var(--line);
 }
 .search{
   width:100%; max-width:520px; margin:0 auto 10px; display:block;
-  padding:12px 16px; font-size:16px; border:2px solid var(--line); border-radius:999px;
+  padding:11px 14px; font-size:16px; border:1px solid var(--line); border-radius:var(--radius);
   background:#fff; color:var(--ink); font-family:inherit;
 }
-.search:focus{outline:none; border-color:var(--accent)}
-.tabs{display:flex; gap:7px; justify-content:center; flex-wrap:wrap}
+.search:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+.tabs{display:flex; gap:6px; justify-content:center; flex-wrap:wrap}
 .tab{
-  padding:7px 15px; border-radius:999px; border:2px solid var(--line); background:#fff;
-  font-size:15px; font-family:inherit; color:var(--sub); cursor:pointer; line-height:1.4;
+  padding:6px 14px; border-radius:var(--radius); border:1px solid var(--line); background:#fff;
+  font-size:14px; font-family:inherit; color:var(--sub); cursor:pointer; line-height:1.5; min-height:36px;
 }
+.tab:hover{border-color:var(--accent)}
 .tab[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:bold}
-.tab[aria-pressed="true"] rt{color:#ffe8d6}
 main{max-width:1040px; margin:0 auto; padding:16px}
-.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(266px,1fr)); gap:14px}
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(266px,1fr)); gap:12px}
 .card{
-  background:var(--card); border:2px solid var(--line); border-radius:20px; padding:14px 14px 12px;
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:14px 14px 12px;
   display:flex; flex-direction:column;
 }
 .card-head{display:flex; align-items:center; gap:12px; margin-bottom:10px}
 .thumb{
-  width:64px; height:64px; flex:none; border-radius:16px; background:#fdf4e6;
+  width:60px; height:60px; flex:none; border-radius:var(--radius); background:var(--soft);
   display:grid; place-items:center; overflow:hidden;
 }
 .thumb svg,.thumb img{width:100%; height:100%; display:block}
@@ -98,59 +102,60 @@ main{max-width:1040px; margin:0 auto; padding:16px}
 .credits summary{cursor:pointer; color:var(--green)}
 .credits ul{max-height:340px; overflow:auto; font-size:12px; line-height:1.6}
 .credits li{margin-bottom:2px}
-.name{font-size:21px; font-weight:bold; line-height:1.35}
+.name{font-size:20px; font-weight:bold; line-height:1.35}
 .name a{color:inherit; text-decoration:none}
 .name a:hover{color:var(--accent)}
-.more-link{display:block; margin-top:10px; padding:8px 0 2px; text-align:center; font-size:14px; font-weight:bold; color:#b4501a; text-decoration:none; border-top:1px dashed var(--line)}
-.more-link:hover{color:var(--accent)}
+.more-link{display:block; margin-top:10px; padding:8px 0 2px; text-align:center; font-size:14px; font-weight:bold; color:var(--accent); text-decoration:none; border-top:1px solid var(--line)}
+.more-link:hover{text-decoration:underline}
 .badges{margin-top:4px; display:flex; flex-wrap:wrap; gap:4px}
-.badge{font-size:11px; color:var(--sub); background:#f6f0e6; border-radius:999px; padding:1px 8px}
-.badge.y{background:#eaf2e4; color:#5c7a4a}
-.badge.w{background:#fdeee2; color:#a86a3d}
-.badge.f2{background:#e4f0f5; color:#3f7186}
+.badge{font-size:11px; color:var(--sub); background:var(--soft); border-radius:3px; padding:1px 7px}
+.badge.y{background:var(--soft); color:var(--sub)}
+.badge.w{background:#fbf0e8; color:#9a4a1f}
+.badge.f2{background:#eaf1f5; color:#36607a}
 button.badge.f{
-  border:0; font-family:inherit; cursor:pointer; background:#eef0f7; color:#5a6480;
+  border:0; font-family:inherit; cursor:pointer; background:var(--accent-soft); color:var(--accent);
 }
-button.badge.f:hover{background:#e2e6f2}
-ol.rank{list-style:none; margin:0 0 auto; padding:0}
+button.badge.f:hover{background:#dbece3}
+ol.rank{list-style:none; margin:0 0 auto; padding:0; font-variant-numeric:tabular-nums}
 ol.rank li{display:flex; align-items:center; gap:9px; padding:5px 0}
 .medal{
-  width:26px; height:26px; flex:none; border-radius:50%; display:grid; place-items:center;
-  font-size:13px; font-weight:bold; color:#fff;
+  width:24px; height:24px; flex:none; border-radius:4px; display:grid; place-items:center;
+  font-size:12px; font-weight:bold; color:#fff;
 }
 .r1 .medal{background:var(--gold)} .r2 .medal{background:var(--silver)} .r3 .medal{background:var(--bronze)}
 .pref{
-  font-size:17px; font-weight:bold; min-width:76px; color:inherit;
-  text-decoration:none; border-bottom:2px dotted var(--line);
+  font-size:16px; font-weight:bold; min-width:76px; color:inherit;
+  text-decoration:none; border-bottom:1px solid var(--line);
 }
-.pref:hover{border-bottom-color:var(--accent)}
+.pref:hover{border-bottom-color:var(--accent); color:var(--accent)}
 .amount{display:block; margin-left:auto; min-width:116px; text-align:right; font-size:14px; white-space:nowrap}
 .amount .share{display:block; font-size:11px; color:var(--sub)}
-.bar{display:block; height:6px; border-radius:3px; background:#f1e8dc; margin-top:2px; overflow:hidden}
-.bar i{display:block; height:100%; border-radius:3px; background:var(--gold)}
+.bar{display:block; height:5px; border-radius:2px; background:#e8ece9; margin-top:3px; overflow:hidden}
+.bar i{display:block; height:100%; border-radius:2px; background:var(--gold)}
 .r2 .bar i{background:var(--silver)} .r3 .bar i{background:var(--bronze)}
 .card-foot{
-  margin-top:10px; padding-top:9px; border-top:1px dashed var(--line);
+  margin-top:10px; padding-top:9px; border-top:1px solid var(--line);
   display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:11px; color:var(--sub);
 }
-.card-foot a{color:var(--green); text-decoration:none; white-space:nowrap; border-bottom:1px dotted var(--green)}
+.card-foot a{color:var(--green); text-decoration:none; white-space:nowrap; border-bottom:1px solid currentColor}
 .empty{text-align:center; color:var(--sub); padding:40px 0}
 .more{max-width:1040px; margin:8px auto 0; padding:0 16px}
-.more h2{font-size:16px; margin:18px 0 8px}
-.more ul{list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:10px}
+.more h2{font-size:16px; margin:24px 0 10px; padding-left:10px; border-left:3px solid var(--accent)}
+.more ul{list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:8px}
 .more a{
-  display:inline-block; padding:10px 18px; background:#fff; text-decoration:none;
-  border:2px solid var(--line); border-radius:999px; color:var(--ink);
+  display:inline-block; padding:9px 16px; background:#fff; text-decoration:none;
+  border:1px solid var(--line); border-radius:var(--radius); color:var(--ink);
 }
-.more a:hover{border-color:var(--accent)}
+.more a:hover{border-color:var(--accent); color:var(--accent)}
 .more .sub{font-size:12px; color:var(--sub); display:block; margin-top:6px}
-footer{max-width:1040px; margin:0 auto; padding:24px 16px 48px; font-size:13px; color:var(--sub)}
-footer h2{font-size:15px; color:var(--ink); margin:18px 0 6px}
+footer{max-width:1040px; margin:0 auto; padding:28px 16px 48px; font-size:13px; color:var(--sub); border-top:1px solid var(--line); margin-top:24px}
+footer h2{font-size:15px; color:var(--ink); margin:20px 0 6px}
 footer a{color:var(--green)}
-footer .updated{background:#fff; border:2px solid var(--line); border-radius:12px; padding:10px 14px}
+footer .updated{background:var(--soft); border:1px solid var(--line); border-radius:var(--radius); padding:10px 14px}
 footer ul{padding-left:1.2em; margin:6px 0}
+a:focus-visible,.tab:focus-visible,button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 @media (max-width:420px){
-  h1{font-size:22px}
+  h1{font-size:23px}
   .grid{grid-template-columns:1fr}
 }
 </style>
@@ -227,7 +232,7 @@ footer ul{padding-left:1.2em; margin:6px 0}
 </footer>
 
 <!-- ?v= はキャッシュ対策。data.js を作り直したらこの日付も変える（README参照） -->
-<script src="data.js?v=20261117b"></script>
+<script src="data.js?v=20261117c"></script>
 <script src="photos.js?v=20261116"></script>
 <script src="art.js?v=20261116"></script>
 <script>
@@ -354,7 +359,7 @@ function card(it){
         !it.partial && it.prefCount ? (it.national ? '／' : '') + it.prefCount + '県分を調査' : ''}</span>
       <a href="${it.source}" target="_blank" rel="noopener">データの出典</a>
     </div>
-    <a class="more-link" href="item/${it.slug}">${it.prefCount > 3 && !it.partial ? '全' + it.prefCount + '県の順位' : 'くわしく見る'}${TREND_ITEMS.has(it.stat) ? '・推移' : ''} ›</a>
+    <a class="more-link" href="item/${it.slug}">${it.prefCount > 3 && !it.partial ? '全' + it.prefCount + '県の順位' : '詳しく見る'}${TREND_ITEMS.has(it.stat) ? '・推移' : ''} ›</a>
   </article>`;
 }
 

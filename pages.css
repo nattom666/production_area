@@ -1,82 +1,74 @@
-/* build-pages.py が作る品目ページ・県ページ用。index.html とは別。 */
+/* build-pages.py が作る品目ページ・県ページ用。index.html とは別。
+   デザイン：白×深緑のミニマル（2026-11-17）。角丸は小さく、枠は細く、影は使わない */
 :root{
-  --bg:#fff9f0; --card:#fff; --ink:#3b3226; --sub:#8a7c6a; --line:#efe3d2;
-  --gold:#f5b700; --silver:#b9c2cc; --bronze:#d08b52; --accent:#ff8c42;
+  --bg:#ffffff; --card:#ffffff; --ink:#1d211f; --sub:#5f6661; --line:#e3e6e2; --soft:#f4f6f4;
+  --accent:#1f6b4f; --accent-soft:#eaf3ee; --link:#1f6b4f; --warn:#9a3412;
+  --gold:#1f6b4f; --silver:#7a8a82; --bronze:#a7b5ad; --radius:6px;
 }
 *{box-sizing:border-box}
 body{
   margin:0 auto; max-width:760px; padding:16px; background:var(--bg); color:var(--ink);
-  font-family:"Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN",-apple-system,"BIZ UDPGothic","Meiryo",sans-serif;
-  line-height:1.8; -webkit-text-size-adjust:100%;
+  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+  line-height:1.8; letter-spacing:.01em; -webkit-text-size-adjust:100%;
 }
-ruby{ruby-align:center}
-rt{font-size:.48em; color:var(--sub); font-weight:normal; line-height:1.1}
-a{color:#c25a1a}
-h1{font-size:26px; line-height:1.5; margin:8px 0 4px}
+a{color:var(--link); text-underline-offset:2px}
+h1{font-size:26px; line-height:1.5; margin:8px 0 4px; font-weight:700}
 h1 small{display:block; font-size:14px; color:var(--sub); font-weight:normal; margin-top:6px}
-h2{font-size:18px; margin:28px 0 8px; padding-left:10px; border-left:5px solid var(--accent)}
+h1,h2,.pr-title{text-wrap:balance}
+h2{font-size:18px; margin:32px 0 10px; padding-left:10px; border-left:3px solid var(--accent); font-weight:700}
 .crumbs{font-size:13px; color:var(--sub); padding:6px 0}
 .crumbs a{color:var(--sub)}
-.lead{
-  background:var(--card); border:2px solid var(--line); border-radius:14px;
-  padding:14px 16px; margin:14px 0;
-}
+.lead{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:14px 16px; margin:14px 0}
 .photo{margin:16px 0; text-align:center}
-.photo img{max-width:100%; height:auto; border-radius:14px; border:2px solid var(--line)}
+.photo img{max-width:100%; height:auto; border-radius:var(--radius); border:1px solid var(--line)}
 .photo figcaption{font-size:12px; color:var(--sub); margin-top:6px}
-table.rank{
-  width:100%; border-collapse:collapse; background:var(--card);
-  border:2px solid var(--line); border-radius:14px; overflow:hidden; margin:10px 0;
-}
+table.rank{width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin:10px 0; font-variant-numeric:tabular-nums}
 table.rank caption{text-align:left; font-size:13px; color:var(--sub); padding:4px 2px}
 table.rank th,table.rank td{padding:10px 12px; border-bottom:1px solid var(--line); text-align:left}
-table.rank th{background:#fdf4e6; font-size:13px; color:var(--sub); font-weight:normal}
+table.rank th{background:var(--soft); font-size:13px; color:var(--sub); font-weight:normal}
 table.rank tr:last-child td{border-bottom:none}
-tr.r1 td:first-child{color:#a97c00; font-weight:bold; background:#fff8e0}
-tr.r2 td:first-child{color:#6f7a86; font-weight:bold}
-tr.r3 td:first-child{color:#9c6236; font-weight:bold}
+tr.r1 td:first-child{color:var(--accent); font-weight:bold; background:var(--accent-soft)}
+tr.r2 td:first-child,tr.r3 td:first-child{font-weight:bold}
 dl.qa{margin:10px 0}
 dl.qa dt{font-weight:bold; margin:14px 0 0}
-dl.qa dd{margin:4px 0 0; padding-left:12px; border-left:4px solid var(--line)}
+dl.qa dd{margin:4px 0 0; padding-left:12px; border-left:3px solid var(--line)}
 ul.facts{padding-left:1.2em; margin:8px 0}
-ul.facts .warn{color:#b4531c}
+ul.facts .warn{color:var(--warn)}
 ul.links{list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
 ul.links li{margin:0}
-ul.links a{
-  display:inline-block; padding:6px 14px; background:var(--card);
-  border:2px solid var(--line); border-radius:999px; text-decoration:none;
-}
+ul.links a{display:inline-block; padding:6px 14px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); text-decoration:none}
 ul.links a:hover{border-color:var(--accent)}
 ul.links .cnt{font-size:11px; color:var(--sub); margin-left:4px}
-a.src{
-  display:inline-block; margin:4px 0; padding:8px 16px; border-radius:999px;
-  background:var(--card); border:2px solid var(--line); text-decoration:none;
-}
-.foot{margin-top:36px; padding-top:16px; border-top:1px solid var(--line); font-size:13px}
+a.src{display:inline-block; margin:4px 0; padding:8px 16px; border-radius:var(--radius); background:var(--card); border:1px solid var(--line); text-decoration:none}
+a.src:hover{border-color:var(--accent)}
+.foot{margin-top:40px; padding-top:16px; border-top:1px solid var(--line); font-size:13px}
 .foot .note{color:var(--sub)}
 .foot .policy{font-size:12px}
-.pr{position:relative; background:var(--card); border:2px solid var(--line); border-radius:14px; padding:12px 14px 14px; margin:16px 0}
+.pr{position:relative; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:12px 14px 14px; margin:16px 0}
 .pr-head{display:flex; align-items:flex-start; gap:10px}
 .pr-title{flex:1; min-width:0; margin:0; font-weight:bold; line-height:1.6}
-.pr-tag{flex:none; font-size:11px; line-height:1.6; color:#5c5246; background:#f1e9dd; border-radius:4px; padding:0 6px; margin-top:2px}
+.pr-tag{flex:none; font-size:11px; line-height:1.6; color:#4a524d; background:var(--soft); border:1px solid var(--line); border-radius:3px; padding:0 6px; margin-top:2px}
 .pr-sub{margin:4px 0 0; font-size:13px; color:var(--sub)}
 .pr-btns{display:grid; grid-template-columns:1fr; gap:8px; margin-top:12px}
 .pr-btn{display:flex; align-items:center; justify-content:center; text-align:center; padding:10px 12px; min-height:46px;
-  border-radius:999px; border:2px solid var(--line); text-decoration:none; font-size:15px; line-height:1.4; box-sizing:border-box}
-.pr-btn.main{border-color:var(--accent); font-weight:bold}
+  border-radius:var(--radius); border:1px solid var(--line); text-decoration:none; font-size:15px; line-height:1.4; color:var(--link)}
+.pr-btn:hover{border-color:var(--accent)}
+.pr-btn.main{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:bold}
+.pr-btn.main:hover{background:#185a42}
 .pr-imp{position:absolute; width:1px; height:1px; border:0; opacity:0}
 .pr-banner{position:relative; width:fit-content; max-width:100%; margin:0 auto 16px; display:flex; flex-direction:column; gap:4px}
 .pr-banner .pr-tag{align-self:flex-end; margin:0}
 .pr-banner a{display:block; max-width:100%}
-.pr-banner img{display:block; max-width:100%; height:auto; border-radius:8px}
+.pr-banner img{display:block; max-width:100%; height:auto; border-radius:var(--radius)}
 @media (min-width:600px){
   .pr-btns{grid-template-columns:repeat(3, minmax(0, 1fr))}
   .pr-btn{font-size:14px; padding:10px 8px}
 }
 .tbl{overflow-x:auto}
 table.trend td small{display:block; font-size:12px; color:var(--sub)}
-table.trend .bar{display:block; height:6px; border-radius:3px; background:#f1e8dc; margin-top:4px; overflow:hidden; min-width:60px}
-table.trend .bar i{display:block; height:100%; border-radius:3px; background:var(--accent)}
+table.trend .bar{display:block; height:6px; border-radius:2px; background:#e8ece9; margin-top:4px; overflow:hidden; min-width:60px}
+table.trend .bar i{display:block; height:100%; border-radius:2px; background:var(--accent)}
+a:focus-visible,.pr-btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 @media (max-width:480px){
   h1{font-size:22px}
   table.rank th,table.rank td{padding:8px 8px; font-size:14px}
