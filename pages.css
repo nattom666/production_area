@@ -60,8 +60,10 @@ a.src:hover{border-color:var(--accent)}
 .pr-banner .pr-tag{align-self:flex-end; margin:0}
 .pr-banner a{display:block; max-width:100%}
 .pr-banner img{display:block; max-width:100%; height:auto; border-radius:var(--radius)}
-.ad{margin:24px 0; padding-top:8px; border-top:1px solid var(--line)}
-.ad-tag{display:block; font-size:11px; color:var(--sub); margin-bottom:4px}
+.ad{margin:24px 0; padding-top:8px; border-top:1px solid transparent}
+.ad-tag{display:block; visibility:hidden; font-size:11px; color:var(--sub); margin-bottom:4px}
+.ad:has(ins[data-ad-status="filled"]){border-top-color:var(--line)}
+.ad:has(ins[data-ad-status="filled"]) .ad-tag{visibility:visible}
 .ad:has(ins[data-ad-status="unfilled"]){display:none}
 @media (min-width:600px){
   .pr-btns{grid-template-columns:repeat(3, minmax(0, 1fr))}
