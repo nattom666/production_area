@@ -41,6 +41,7 @@ ul.links a:hover{border-color:var(--accent)}
 ul.links .cnt{font-size:11px; color:var(--sub); margin-left:4px}
 a.src{display:inline-block; margin:4px 0; padding:8px 16px; border-radius:var(--radius); background:var(--card); border:1px solid var(--line); text-decoration:none}
 a.src:hover{border-color:var(--accent)}
+.cite{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:10px 14px; font-size:13px; line-height:1.7; white-space:pre-wrap; word-break:break-all; user-select:all; font-family:inherit; margin:8px 0}
 .foot{margin-top:40px; padding-top:16px; border-top:1px solid var(--line); font-size:13px}
 .foot .note{color:var(--sub)}
 main .note{font-size:13px; color:var(--sub)}
