@@ -44,6 +44,7 @@ a.src:hover{border-color:var(--accent)}
 .foot{margin-top:40px; padding-top:16px; border-top:1px solid var(--line); font-size:13px}
 .foot .note{color:var(--sub)}
 main .note{font-size:13px; color:var(--sub)}
+.updated{margin:-4px 0 12px; font-size:13px; color:var(--sub)}
 .foot .policy{font-size:12px}
 .pr{position:relative; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:12px 14px 14px; margin:16px 0}
 .pr-head{display:flex; align-items:flex-start; gap:10px}
